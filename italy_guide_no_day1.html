@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🇮🇹 意大利出差全攻略</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:#fdf6ee;padding-bottom:60px}
+:root{--bg:#fdf6ee;--card:#fffaf5;--accent:#c85a2c;--accent2:#e8a44a;--text:#3d2b1f;--muted:#8a6a58;--border:#e8d5c4;--done-bg:#f0f9f0;--done-text:#5a8a5a;--green:#4a8c5a}
+/* outer nav */
+.outer-nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e8d5c4;padding:0 12px}
+.outer-tabs{display:flex;gap:2px;padding:8px 0}
+.outer-tab-btn{flex:1;padding:8px 2px;border:none;background:transparent;border-radius:10px;font-size:.76rem;font-weight:600;color:#8a6a58;cursor:pointer;transition:all .2s;font-family:inherit;line-height:1.3;text-align:center}
+.outer-tab-btn.active{background:#c85a2c;color:#fff}
+.panel{display:none}.panel.active{display:block}
+/* shared */
+.hero{color:#fff;padding:28px 20px 24px;text-align:center}
+.hero h1{font-size:1.4rem;font-weight:700;margin-bottom:6px}
+.hero p,.hero .sub{font-size:.85rem;opacity:.85}
+.container{max-width:520px;margin:0 auto;padding:16px}
+@media(min-width:540px){.container{padding:20px}}
+/* checklist */
+.progress-wrap{background:rgba(255,255,255,.2);border-radius:20px;height:10px;margin:16px 0 8px;overflow:hidden}
+.progress-bar{height:100%;background:#fff;border-radius:20px;transition:width .4s;width:0%}
+.progress-text{font-size:.82rem;opacity:.9}
+.section{background:var(--card);border-radius:14px;border:1px solid var(--border);margin-bottom:14px;overflow:hidden}
+.section-header{display:flex;align-items:center;gap:8px;padding:14px 16px 10px;border-bottom:1px solid var(--border)}
+.section-header .icon{font-size:1.3rem}
+.section-header h2{font-size:1rem;font-weight:700;color:var(--text)}
+.section-header .count{margin-left:auto;font-size:.8rem;color:var(--muted);background:var(--bg);border-radius:10px;padding:2px 8px}
+.item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .2s;user-select:none;-webkit-tap-highlight-color:transparent}
+.item:last-child{border-bottom:none}
+.item:active{background:#f5ede3}
+.item.done{background:var(--done-bg)}
+.checkbox{width:22px;height:22px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;background:#fff}
+.item.done .checkbox{background:var(--done-text);border-color:var(--done-text)}
+.checkbox svg{display:none;width:12px;height:12px}
+.item.done .checkbox svg{display:block}
+.item-text{flex:1;font-size:.9rem;transition:all .2s}
+.item.done .item-text{text-decoration:line-through;color:var(--done-text)}
+.item-tag{font-size:.72rem;padding:2px 7px;border-radius:10px;background:#ffeedd;color:var(--accent);font-weight:600;flex-shrink:0}
+.item.done .item-tag{background:var(--done-bg);color:var(--done-text)}
+.reset-btn{display:block;width:calc(100% - 32px);margin:0 16px 16px;padding:12px;background:#fff;border:1.5px solid var(--border);border-radius:10px;color:var(--muted);font-size:.88rem;cursor:pointer;text-align:center;transition:all .2s}
+.reset-btn:active{background:#fdf0e8;border-color:var(--accent)}
+/* day1 */
+.hotel-card{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:16px;margin-bottom:14px}
+.hotel-card h2{font-size:.88rem;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em}
+.hotel-name{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.hotel-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;font-size:.88rem}
+.hotel-row .lbl{color:var(--muted);flex-shrink:0;min-width:52px}
+.hotel-row .val{color:var(--text);flex:1}
+.stars{color:var(--accent2);font-size:.9rem}
+.badge{display:inline-flex;align-items:center;gap:4px;background:#e8f4fd;color:#2c5fc8;border-radius:8px;padding:4px 10px;font-size:.8rem;font-weight:600;margin-top:8px}
+.timeline-wrap{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:16px;margin-bottom:14px}
+.timeline-wrap h2{font-size:.88rem;color:var(--muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em}
+.tl-item{display:flex;gap:12px;position:relative}
+.tl-item:not(:last-child)::after{content:'';position:absolute;left:34px;top:34px;bottom:-4px;width:2px;background:var(--border)}
+.tl-time{width:52px;flex-shrink:0;text-align:right;font-size:.82rem;font-weight:700;color:var(--accent);padding-top:8px}
+.tl-dot{width:16px;height:16px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:10px;z-index:1;box-shadow:0 0 0 3px var(--bg)}
+.tl-body{flex:1;padding:8px 0 18px}
+.tl-title{font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.tl-desc{font-size:.82rem;color:var(--muted);line-height:1.5}
+.tl-tag{display:inline-block;background:#fff4ec;color:var(--accent);border-radius:6px;font-size:.74rem;padding:2px 7px;margin-top:4px}
+.sights-wrap{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:16px;margin-bottom:14px}
+.sights-wrap h2{font-size:.88rem;color:var(--muted);margin-bottom:12px;text-transform:uppercase;letter-spacing:.08em}
+.sight-card{border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:8px;background:#fff}
+.sight-card:last-child{margin-bottom:0}
+.sight-top{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.sight-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sight-name{font-size:.92rem;font-weight:700;color:var(--text);flex:1}
+.sight-score{font-size:.8rem;color:var(--accent2);flex-shrink:0}
+.sight-desc{font-size:.82rem;color:var(--muted);line-height:1.5;padding-left:32px}
+.sight-badge{display:inline-block;background:#fff4ec;color:var(--accent);border-radius:6px;font-size:.72rem;padding:1px 6px;margin-left:4px}
+.tips-wrap{background:linear-gradient(135deg,#fff9f0,#fff4e6);border-radius:14px;border:1px solid #f0d9c0;padding:16px;margin-bottom:14px}
+.tips-wrap h2{font-size:.88rem;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em}
+.tip{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;font-size:.87rem;line-height:1.5}
+.tip:last-child{margin-bottom:0}
+.tip .t-icon,.tip .icon{flex-shrink:0;font-size:1rem}
+/* evenings inner tabs */
+.tabs{display:flex;background:var(--card);border-radius:12px;border:1px solid var(--border);padding:4px;margin-bottom:14px;gap:2px}
+.tab-btn{flex:1;padding:8px 4px;border:none;background:transparent;border-radius:9px;font-size:.8rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s;font-family:inherit}
+.tab-btn.active{background:var(--accent);color:#fff}
+.day-panel{display:none}.day-panel.active{display:block}
+.day-header{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:16px;margin-bottom:12px}
+.day-title{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:6px}
+.day-sub{font-size:.85rem;color:var(--muted);margin-bottom:10px;line-height:1.5}
+.activity-badge{display:inline-flex;align-items:center;gap:5px;background:#fff4ec;border:1px solid #f0d0b0;border-radius:8px;padding:6px 10px;font-size:.83rem;color:var(--accent);font-weight:600}
+.rest-card{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:16px;margin-bottom:12px}
+.rest-card h3{font-size:.82rem;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em}
+.rest-name{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.rest-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:5px;font-size:.86rem}
+.rest-row .lbl{color:var(--muted);flex-shrink:0;min-width:40px}
+.rest-row .val{color:var(--text);flex:1}
+.warn{display:flex;align-items:flex-start;gap:6px;background:#fff8e6;border:1px solid #f5d88a;border-radius:8px;padding:8px 10px;margin-top:10px;font-size:.82rem;color:#7a5a10}
+.food-card{background:var(--card);border-radius:14px;border:1px solid var(--border);overflow:hidden;margin-bottom:12px}
+.food-card h3{font-size:.82rem;color:var(--muted);padding:14px 16px 0;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.food-item{display:flex;gap:12px;padding:10px 16px;border-top:1px solid var(--border);align-items:flex-start}
+.food-emoji{font-size:1.6rem;flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--bg);border-radius:10px}
+.food-info .name{font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.food-info .desc{font-size:.8rem;color:var(--muted);line-height:1.5}
+.must-tag{display:inline-block;background:var(--accent);color:#fff;border-radius:6px;font-size:.7rem;padding:1px 6px;margin-left:4px;vertical-align:middle}
+/* como */
+.sec-title{display:flex;align-items:center;gap:8px;font-size:.82rem;color:#5a7a9a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.stop{background:#fff;border-radius:14px;border:1px solid #cce0f0;margin-bottom:12px;overflow:hidden}
+.stop-header{display:flex;align-items:center;gap:10px;padding:13px 14px;border-bottom:1px solid #cce0f0;background:#e8f4fd}
+.stop-time{font-size:.82rem;font-weight:700;color:#1a6ea8;min-width:80px}
+.stop-place{font-size:.95rem;font-weight:700;color:#1a2a3a}
+.stop-body{padding:12px 14px}
+.info-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:.86rem}
+.info-row:last-child{margin-bottom:0}
+.info-row .lbl{color:#5a7a9a;flex-shrink:0;min-width:52px}
+.info-row .val{color:#1a2a3a;flex:1;line-height:1.5}
+.warn-box{display:flex;gap:6px;background:#fff9e6;border:1px solid #f5d88a;border-radius:8px;padding:8px 10px;margin-top:8px;font-size:.82rem;color:#7a5a10;line-height:1.5}
+.cards-grid{display:flex;flex-direction:column;gap:8px}
+.sight{border:1px solid #cce0f0;border-radius:10px;padding:11px 12px;background:#f8fcff}
+.sight-head{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.sight-dot{width:8px;height:8px;border-radius:50%;background:#1a6ea8;flex-shrink:0}
+.sight-name{font-size:.9rem;font-weight:700;color:#1a2a3a}
+.sight-meta{font-size:.78rem;color:#5a7a9a;margin-left:14px}
+.sight-tip{font-size:.8rem;color:#5a7a9a;margin-left:14px;margin-top:2px;line-height:1.4}
+.price-tag{display:inline-block;background:#e8f4fd;color:#1a6ea8;border-radius:5px;font-size:.72rem;padding:1px 6px;margin-left:4px;font-weight:600}
+.free-tag{display:inline-block;background:#e8f8ee;color:#3a8a5a;border-radius:5px;font-size:.72rem;padding:1px 6px;margin-left:4px;font-weight:600}
+.warn-tag{display:inline-block;background:#fff9e6;color:#7a5a10;border-radius:5px;font-size:.72rem;padding:1px 6px;margin-left:4px;font-weight:600}
+.transit{background:#fff;border-radius:12px;border:1px solid #cce0f0;padding:13px 14px;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.transit-icon{font-size:1.5rem;flex-shrink:0}
+.transit-info .main{font-size:.92rem;font-weight:700;color:#1a2a3a;margin-bottom:2px}
+.transit-info .sub{font-size:.8rem;color:#5a7a9a}
+.transit-price{margin-left:auto;font-size:.88rem;font-weight:700;color:#1a6ea8;flex-shrink:0}
+.tips-box{background:linear-gradient(135deg,#e8f4fd,#f0faff);border-radius:14px;border:1px solid #cce0f0;padding:14px;margin-bottom:12px}
+.tips-title{font-size:.82rem;color:#5a7a9a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.tip .no{color:#c83030;font-weight:700}
+.route-bar{display:flex;align-items:center;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:14px;font-size:.78rem;opacity:.9;position:relative}
+.rb{background:rgba(255,255,255,.2);border-radius:6px;padding:3px 8px}
+.rb-arrow{opacity:.7}
+</style>
+</head>
+<body>
+<nav class="outer-nav">
+  <div class="outer-tabs">
+    <button class="outer-tab-btn active" onclick="showPanel(0)">✅ 行李<br>清单</button>
+    <button class="outer-tab-btn" onclick="showPanel(1)">🌆 工作<br>日晚</button>
+    <button class="outer-tab-btn" onclick="showPanel(2)">🏔️ 科莫<br>9/19</button>
+  </div>
+</nav>
+<div id="panel-0" class="panel active"><div class="hero" style="background:linear-gradient(135deg,#c85a2c 0%,#e8a44a 100%)">
+  <h1>🇮🇹 贝加莫出差清单</h1>
+  <p>出发前对照检查 · 带够别担心</p>
+  <div class="progress-wrap"><div class="progress-bar" id="bar"></div></div>
+  <div class="progress-text" id="prog">0 / 24 已完成</div>
+</div>
+<div class="container">
+<div class="section">
+  <div class="section-header"><span class="icon">🔌</span><h2>电器类</h2><span class="count" id="c0">0/4</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">欧标转换插头（意大利 Type F/L 两圆孔）</span><span class="item-tag">★必带</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">携带式旅行热水壶</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">手机/电脑充电器</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">充电宝</span></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="icon">👔</span><h2>衣物</h2><span class="count" id="c1">0/6</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">薄外套 / 针织开衫（早晚和室内空调必备）</span><span class="item-tag">9月凉</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">商务场合：长裤/长裙 ×4，衬衫/套装上衣 ×4</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">休闲场合：长裤/休闲裙 ×2，短袖/长袖T恤 ×4</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">舒适步行鞋（上城/科莫全是石板路！）</span><span class="item-tag">★必带</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">商务皮鞋 / 低跟鞋 ×1双</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">折叠雨伞（9月偶有阵雨）</span></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="icon">💊</span><h2>药品</h2><span class="count" id="c2">0/7</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">胃肠药（黄连素/思密达，出国水土不服）</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">感冒药（白加黑 / 泰诺）</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">布洛芬（止痛退烧）</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">创可贴（走路多防磨脚）</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">防蚊液（湖边/夜晚）</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">晕车药（坐船备用）</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">肠胃益生菌</span></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="icon">🧴</span><h2>洗漱 / 护肤</h2><span class="count" id="c3">0/3</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">防晒霜 SPF50</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">洗发水/沐浴露小瓶</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">护肤精简套装</span></div>
+</div>
+<div class="section">
+  <div class="section-header"><span class="icon">📋</span><h2>证件 / 其他</h2><span class="count" id="c4">0/4</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">护照（确认有效期）</span><span class="item-tag">★必查</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">公司邀请函 / 行程确认函</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">欧元现金（约300-500欧）</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">国际漫游开通 或 当地SIM卡</span></div>
+</div>
+<button class="reset-btn" onclick="resetAll()">↺ 重置所有勾选</button>
+</div>
+<script>
+const TOTAL=24;const sectionIds=['c0','c1','c2','c3','c4'];
+function getCounts(){let done=0;document.querySelectorAll('.section').forEach((sec,si)=>{let sd=sec.querySelectorAll('.item.done').length,st=sec.querySelectorAll('.item').length;document.getElementById(sectionIds[si]).textContent=sd+'/'+st;done+=sd;});return done;}
+function update(){let done=getCounts();document.getElementById('bar').style.width=(done/TOTAL*100)+'%';document.getElementById('prog').textContent=done+' / '+TOTAL+' 已完成'+(done===TOTAL?' 🎉 全部搞定！':'');}
+function toggle(el){el.classList.toggle('done');let items=Array.from(document.querySelectorAll('#panel-0 .item'));let state=items.map(i=>i.classList.contains('done')?1:0);try{localStorage.setItem('itcheck',JSON.stringify(state))}catch(e){}update();}
+function resetAll(){document.querySelectorAll('#panel-0 .item').forEach(i=>i.classList.remove('done'));try{localStorage.removeItem('itcheck')}catch(e){}update();}
+try{let s=JSON.parse(localStorage.getItem('itcheck')||'null');if(s){let items=Array.from(document.querySelectorAll('#panel-0 .item'));s.forEach((v,i)=>{if(items[i]&&v)items[i].classList.add('done');});}}catch(e){}
+update();
+</script></div>
+<div id="panel-1" class="panel"><div class="hero" style="background:linear-gradient(135deg,#1a1a2e 0%,#4a3060 50%,#c85a2c 100%)">
+  <h1>🌆 工作日晚安排</h1>
+  <p>9/15–9/18 · 下班约17:00 · 每晚不同主题</p>
+</div>
+<div class="container">
+<div class="tabs">
+  <button class="tab-btn active" onclick="showDay(0)">周二<br><span style="font-weight:400;font-size:.72rem">9/15</span></button>
+  <button class="tab-btn" onclick="showDay(1)">周三<br><span style="font-weight:400;font-size:.72rem">9/16</span></button>
+  <button class="tab-btn" onclick="showDay(2)">周四<br><span style="font-weight:400;font-size:.72rem">9/17</span></button>
+  <button class="tab-btn" onclick="showDay(3)">周五<br><span style="font-weight:400;font-size:.72rem">9/18</span></button>
+</div>
+<div class="day-panel active" id="d0">
+  <div class="day-header"><div class="day-title">🍷 周二 9/15 — 轻松 Aperitivo 解乏</div><div class="day-sub">下班直接坐缆车上上城，傍晚城墙看落日（约30分钟），随意溜达放松心情</div><div class="activity-badge">🚠 缆车上城 → 城墙落日 → 随意溜达</div></div>
+  <div class="rest-card"><h3>🍴 精致吃</h3><div class="rest-name">Il Circolino</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Vicolo Sant'Agata 19（上城内）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€15-25</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🥟 Casoncelli alla Bergamasca — 手工肉馅饺，黄油鼠尾草培根浇汁</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">上城石板街露台，Aperitivo 文化：开胃酒 + 小食</span></div></div>
+  <div class="rest-card"><h3>🍕 简单吃</h3><div class="rest-name">Pizzeria Da Franco</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Via San Lazzaro（下城）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€8-12</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍕 Margherita / Prosciutto e Funghi — 薄底披萨，火腿蘑菇本地人最爱</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">本地老牌，不用预约，下班不想折腾时首选</span></div></div>
+</div>
+<div class="day-panel" id="d1">
+  <div class="day-header"><div class="day-title">🍽️ 周三 9/16 — 正经聚餐</div><div class="day-sub">下城商业街漫步，同事一起找一家正经餐厅吃顿好的</div><div class="activity-badge">🚶 下城商业街漫步</div></div>
+  <div class="rest-card"><h3>🍴 精致吃</h3><div class="rest-name">Da Giuliana</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Via Broseta 58（下城）</span></div><div class="rest-row"><span class="lbl">套餐</span><span class="val">€25/人，含前菜+主菜+甜品+酒水，分量足</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🌽 Polenta e Brasato — 玉米糊配红酒炖牛肉，北意经典</span></div><div class="warn">⚠️ <span><b>必须提前电话预约！</b>没预约 7:30 碰运气排队，大概率白跑</span></div></div>
+  <div class="rest-card"><h3>🥗 简单吃</h3><div class="rest-name">Trattoria Sant'Ambroeus</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Via Borgo Palazzo（下城）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€12-18</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍝 Tagliatelle al ragù — 宽蛋面配肉酱，现做手擀</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">不用预约，随意点随意坐</span></div></div>
+</div>
+<div class="day-panel" id="d2">
+  <div class="day-header"><div class="day-title">🌃 周四 9/17 — 上城夜游</div><div class="day-sub">坐缆车上城，夜晚城墙灯光氛围极好，适合多人聚餐</div><div class="activity-badge">🚠 缆车上城 → 夜晚城墙灯光</div></div>
+  <div class="rest-card"><h3>🍴 精致吃</h3><div class="rest-name">Trattoria Parietti</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Via Beltrami 52（上城）</span></div><div class="rest-row"><span class="lbl">评分</span><span class="val">⭐4.6 &nbsp;$$</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍚 Risotto alla Milanese + Ossobuco — 藏红花炖饭配炖小牛腿，伦巴第经典组合</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">用餐后沿城墙夜游，俯瞰下城万家灯火</span></div></div>
+  <div class="rest-card"><h3>🍺 简单吃</h3><div class="rest-name">Osteria della Birra</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Piazza Pontida（下城）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€10-15</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍺 本地生啤 + Salumi 拼盘 — 伦巴第精酿配火腿冷切，聊天放松最搭</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">本地啤酒吧风格，热闹随意</span></div></div>
+</div>
+<div class="day-panel" id="d3">
+  <div class="day-header"><div class="day-title">🎊 周五 9/18 — 出差最后一晚，好好吃一顿</div><div class="day-sub">上城漫步，好好犒劳自己，告别贝加莫</div><div class="activity-badge">🏰 上城漫步 → 隆重告别晚餐</div></div>
+  <div class="rest-card"><h3>🍴 精致吃</h3><div class="rest-name">Nonna Alda</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Via Solata 7（上城）</span></div><div class="rest-row"><span class="lbl">评分</span><span class="val">⭐4.7 &nbsp;$$$</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍖 Coniglio alla Cacciatora — 猎人风味炖兔肉，番茄橄榄迷迭香慢炖</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">全城最高分家常菜，最后一晚压轴之选</span></div></div>
+  <div class="rest-card"><h3>☕ 简单吃</h3><div class="rest-name">La Marianna</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Largo Colle Aperto（上城，缆车站旁）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€8-15</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍰 Polenta e Osei — 贝加莫最著名甜点，杏仁膏做的传统造型，告别必点</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">百年老咖啡馆，吃完正餐来这里收尾</span></div></div>
+</div>
+</div>
+<script>
+function showDay(n){document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',i===n));document.querySelectorAll('.day-panel').forEach((p,i)=>p.classList.toggle('active',i===n));}
+</script></div>
+<div id="panel-1" class="panel" style="background:#f0f7fc;min-height:100vh"><div class="hero" style="background:linear-gradient(160deg,#0d3a6e 0%,#1a6ea8 50%,#4ab0e8 100%);position:relative;overflow:hidden">
+  <div style="position:absolute;right:-10px;bottom:-10px;font-size:7rem;opacity:.12">🌊</div>
+  <h1 style="position:relative">🏔️ 9月19日 科莫湖一日精准攻略</h1>
+  <p style="position:relative">贝加莫 → 米兰 → 瓦伦纳 → 贝拉焦 → 科莫 → 回程</p>
+  <div class="route-bar"><span class="rb">贝加莫</span><span class="rb-arrow">→</span><span class="rb">米兰</span><span class="rb-arrow">→</span><span class="rb">瓦伦纳</span><span class="rb-arrow">→</span><span class="rb">贝拉焦</span><span class="rb-arrow">→</span><span class="rb">科莫</span><span class="rb-arrow">→</span><span class="rb">米兰</span><span class="rb-arrow">→</span><span class="rb">贝加莫</span></div>
+</div>
+<div class="container">
+<div class="stop">
+  <div class="stop-header"><div class="stop-time">07:00</div><div class="stop-place">🚉 贝加莫出发</div></div>
+  <div class="stop-body">
+    <div class="info-row"><span class="lbl">方式</span><span class="val">火车 → 米兰，约40分钟</span></div>
+    <div class="info-row"><span class="lbl">换乘</span><span class="val">米兰中央站转乘 Trenord → Varenna-Esino-Perledo 站，约1小时，€7.5-9</span></div>
+    <div class="warn-box">⚠️ 提前在 Trenord App 买票，确认直达是否正常运营（曾停运，备用方案：走 Lecco 转巴士）</div>
+  </div>
+</div>
+<div class="transit"><div class="transit-icon">🔄</div><div class="transit-info"><div class="main">米兰中央站换乘</div><div class="sub">09:00 · Trenord 区域列车 → 瓦伦纳</div></div><div class="transit-price">€7.5-9</div></div>
+<div class="stop">
+  <div class="stop-header"><div class="stop-time">10:00–13:00</div><div class="stop-place">🏘️ 瓦伦纳</div></div>
+  <div class="stop-body">
+    <div class="info-row"><span class="lbl">到站后</span><span class="val">下火车顺人流步行约5分钟到码头</span></div>
+    <div class="info-row"><span class="lbl">买船票</span><span class="val">码头有3个售票窗口，说"Bellagio"，€5.5/人</span></div>
+    <div class="warn-box">⚠️ 两条队伍：Bellagio 队和 Menaggio 队，<b>别排错！</b><br>售票处对面小咖啡馆可以等船喝咖啡</div>
+    <div style="margin-top:10px"><div class="sec-title"><span>景点</span></div>
+    <div class="cards-grid">
+      <div class="sight"><div class="sight-head"><div class="sight-dot"></div><div class="sight-name">情人小径 Lovers' Walk<span class="free-tag">免费</span></div></div><div class="sight-meta">码头步行 0.4km / 5分钟</div><div class="sight-tip">彩色小房子湖边栈道，拍照圣地，色彩超级出片</div></div>
+      <div class="sight"><div class="sight-head"><div class="sight-dot"></div><div class="sight-name">Villa Monastero 别墅花园<span class="price-tag">€13/人</span><span class="warn-tag">周二关闭</span></div></div><div class="sight-meta">欧洲古典气息，拍照点密集 ★推荐</div><div class="sight-tip">注意：周二关闭！行程是周五，正常开</div></div>
+      <div class="sight"><div class="sight-head"><div class="sight-dot"></div><div class="sight-name">Hotel Villa Cipressi 花园<span class="price-tag">€10/人</span></div></div><div class="sight-meta">Villa Monastero 旁50米，网红"天堂门"机位</div></div>
+    </div></div>
+    <div class="info-row" style="margin-top:10px"><span class="lbl">午餐</span><span class="val">AI Prato（⚠️需提前1天电话预约）/ LA SCARPETTA 备选<br><span style="color:#c83030">❌ 湖鱼炖饭不要点</span></span></div>
+  </div>
+</div>
+<div class="transit"><div class="transit-icon">⛴️</div><div class="transit-info"><div class="main">瓦伦纳 → 贝拉焦 渡轮</div><div class="sub">约13:15 · 15-20分钟 · 湖中穿行，阿尔卑斯山倒影+碧绿湖水</div></div><div class="transit-price">€5.5</div></div>
+<div class="stop">
+  <div class="stop-header"><div class="stop-time">13:30–16:00</div><div class="stop-place">🏰 贝拉焦</div></div>
+  <div class="stop-body">
+    <div class="sec-title"><span>步行路线示意</span></div>
+    <div style="background:#f0f8ff;border-radius:10px;padding:12px;margin-bottom:10px;font-size:.83rem;line-height:1.8;border:1px solid #cce0f0">📍 码头下船<br>&nbsp;&nbsp;↓ 步行 0.2km / 3分钟<br>📍 小镇中心广场<br>&nbsp;&nbsp;↓ 步行 0.6km / 7分钟<br>📍 Salita Serbelloni 石阶（经典机位 ↑↓都好看）<br>&nbsp;&nbsp;↓ 继续走 0.8km / 11分钟<br>📍 Punta Spartivento 岛尖展望台（俯瞰Y型湖面，最美角度）</div>
+    <div class="sec-title"><span>打卡点</span></div>
+    <div class="cards-grid">
+      <div class="sight"><div class="sight-head"><div class="sight-dot"></div><div class="sight-name">码头湖边 bar（紫藤花廊）<span class="free-tag">消费即可</span></div></div><div class="sight-tip">湖景绝佳，坐下来喝杯 Aperol Spritz</div></div>
+      <div class="sight"><div class="sight-head"><div class="sight-dot"></div><div class="sight-name">Salita Serbelloni 石阶</div></div><div class="sight-tip">经典打卡石阶，上下都好看，中午光线最佳</div></div>
+      <div class="sight"><div class="sight-head"><div class="sight-dot"></div><div class="sight-name">Punta Spartivento 岛尖展望台<span class="free-tag">免费</span></div></div><div class="sight-tip">科莫湖Y型分叉最美视角，必去</div></div>
+      <div class="sight"><div class="sight-head"><div class="sight-dot"></div><div class="sight-name">La Bottega del Legno 纪念品</div></div><div class="sight-tip">科莫丝巾比市区实惠，值得逛</div></div>
+    </div>
+    <div class="warn-box">⚠️ 几乎没有免费公厕，餐厅消费时解决</div>
+  </div>
+</div>
+<div class="transit"><div class="transit-icon">🚌</div><div class="transit-info"><div class="main">贝拉焦 → 科莫 C130 巴士</div><div class="sub">上车站：Bellagio - Lido（人少推荐）· 车程约1小时</div></div><div class="transit-price">€4-4.3<br><span style="font-size:.74rem;color:#5a7a9a">可刷Apple Pay</span></div></div>
+<div class="warn-box" style="margin:-4px 0 12px;border-radius:8px">⚠️ <b>坐右侧！</b>湖景全在右边 &nbsp;·&nbsp; 提前20分钟候车，车程约1小时</div>
+<div class="stop">
+  <div class="stop-header"><div class="stop-time">16:00–17:30</div><div class="stop-place">🏙️ 科莫老城</div></div>
+  <div class="stop-body">
+    <div class="info-row"><span class="lbl">步行</span><span class="val">巴士站 → 科莫大教堂：约1km / 15分钟</span></div>
+    <div class="info-row"><span class="lbl">路线</span><span class="val">大教堂 → Villa Olmo 湖边花园：1.5km / 20分钟 → 火车站：1.5km / 20分钟</span></div>
+    <div class="cards-grid" style="margin-top:8px">
+      <div class="sight"><div class="sight-head"><div class="sight-dot"></div><div class="sight-name">科莫大教堂<span class="free-tag">免费</span></div></div><div class="sight-tip">哥特式+文艺复兴混搭，外立面精美，内部肃穆</div></div>
+      <div class="sight"><div class="sight-head"><div class="sight-dot"></div><div class="sight-name">Villa Olmo 湖边花园<span class="free-tag">散步免费</span></div></div><div class="sight-tip">新古典主义别墅，湖边散步惬意</div></div>
+      <div class="sight"><div class="sight-head"><div class="sight-dot"></div><div class="sight-name">Brunate 缆车（可选）<span class="price-tag">往返约€8</span></div></div><div class="sight-tip">站距火车站1.5km/21分钟，上山8分钟，山顶俯瞰全湖 · 时间不够可跳过</div></div>
+    </div>
+  </div>
+</div>
+<div class="transit"><div class="transit-icon">🚉</div><div class="transit-info"><div class="main">17:30 科莫 S.Giovanni 站出发 → 米兰</div><div class="sub">约50分钟，€7.5 · 米兰换乘回贝加莫</div></div><div class="transit-price">€7.5</div></div>
+<div class="tips-box">
+  <div class="tips-title">⚠️ 关键避坑清单</div>
+  <div class="tip"><span class="icon">1️⃣</span><span>Trenord 火车票<b>提前 App 购买</b>，确认直达正常</span></div>
+  <div class="tip"><span class="icon">2️⃣</span><span>瓦伦纳渡轮<b>现场买</b>，分清 Bellagio 队和 Menaggio 队</span></div>
+  <div class="tip"><span class="icon">3️⃣</span><span>AI Prato 餐厅<b>提前1天电话预约</b></span></div>
+  <div class="tip"><span class="icon">4️⃣</span><span><span class="no">❌ 瓦伦纳湖鱼炖饭不要点</span>（网红踩坑）</span></div>
+  <div class="tip"><span class="icon">5️⃣</span><span>贝拉焦<b>几乎无免费公厕</b>，餐厅消费时解决</span></div>
+  <div class="tip"><span class="icon">6️⃣</span><span>C130 巴士<b>坐右侧</b>，湖景全在右边</span></div>
+  <div class="tip"><span class="icon">7️⃣</span><span>全程<b>穿舒服的鞋</b>，全是石板路</span></div>
+  <div class="tip"><span class="icon">8️⃣</span><span>湖上风大，<b>头发扎起来</b></span></div>
+  <div class="tip"><span class="icon">9️⃣</span><span>备现金<b>€50以上</b>，部分小店不收卡</span></div>
+</div>
+</div></div>
+<script>
+function showPanel(n){
+  document.querySelectorAll('.outer-tab-btn').forEach((b,i)=>b.classList.toggle('active',i===n));
+  document.querySelectorAll('.panel').forEach((p,i)=>p.classList.toggle('active',i===n));
+}
+</script>
+</body>
+</html>
