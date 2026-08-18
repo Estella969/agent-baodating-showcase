@@ -139,9 +139,8 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
 <nav class="outer-nav">
   <div class="outer-tabs">
     <button class="outer-tab-btn active" onclick="showPanel(0)">✅ 行李<br>清单</button>
-    <button class="outer-tab-btn" onclick="showPanel(1)">🏰 上城<br>9/14</button>
-    <button class="outer-tab-btn" onclick="showPanel(2)">🌆 工作<br>日晚</button>
-    <button class="outer-tab-btn" onclick="showPanel(3)">🏔️ 科莫<br>9/19</button>
+    <button class="outer-tab-btn" onclick="showPanel(1)">🌆 工作<br>日晚</button>
+    <button class="outer-tab-btn" onclick="showPanel(2)">🏔️ 科莫<br>9/19</button>
   </div>
 </nav>
 <div id="panel-0" class="panel active"><div class="hero" style="background:linear-gradient(135deg,#c85a2c 0%,#e8a44a 100%)">
@@ -201,70 +200,39 @@ function resetAll(){document.querySelectorAll('#panel-0 .item').forEach(i=>i.cla
 try{let s=JSON.parse(localStorage.getItem('itcheck')||'null');if(s){let items=Array.from(document.querySelectorAll('#panel-0 .item'));s.forEach((v,i)=>{if(items[i]&&v)items[i].classList.add('done');});}}catch(e){}
 update();
 </script></div>
-<div id="panel-1" class="panel"><div class="hero" style="background:linear-gradient(135deg,#2c5fc8 0%,#4ea4e8 100%)">
-  <h1>🏰 9月14日 上城初探</h1>
-  <p>同事先到一天 · 上城+晚餐安排</p>
-  <span style="display:inline-block;background:rgba(255,255,255,.2);border-radius:20px;padding:4px 14px;font-size:.82rem;margin-top:10px">周一 · 白天游览上城 · 晚餐见下方</span>
-</div>
-<div class="container">
-<div class="day-header">
-  <div class="day-title">🏛️ 白天：上城游览（步行3.5小时）</div>
-  <div class="day-sub">坐缆车上城，步行可达全部核心景点，下午3点前能逛完</div>
-  <div class="activity-badge">🚠 缆车 €1.70 · 站在下城 Viale Vittorio Emanuele II</div>
-</div>
-<div style="background:#f0f8ff;border-radius:10px;padding:12px;margin-bottom:14px;font-size:.83rem;line-height:1.8;border:1px solid #e0eaf5">
-  📍 缆车上站<br>
-  &nbsp;&nbsp;↓ 0.3km / 5分钟<br>
-  📍 城墙 Mura Veneziane（30分钟，免费）<br>
-  &nbsp;&nbsp;↓ 0.4km / 6分钟<br>
-  📍 科莱奥尼礼拜堂 + 圣母圣殿（40分钟，同一广场）<br>
-  &nbsp;&nbsp;↓ 0.1km / 2分钟<br>
-  📍 城市塔（30分钟，需买票）<br>
-  &nbsp;&nbsp;↓ 0.2km / 3分钟<br>
-  📍 主教座堂广场（20分钟）<br>
-  &nbsp;&nbsp;↓ 0.6km / 9分钟<br>
-  📍 圣雅各布门（20分钟，最佳全景机位）
-</div>
-<div class="day-header" style="margin-top:14px">
-  <div class="day-title">🍽️ 晚餐安排</div>
-  <div class="day-sub">逛完上城就在附近吃，不用下山再折腾</div>
-</div>
-<div class="rest-card"><h3>🍴 精致吃</h3><div class="rest-name">Il Circolino</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Vicolo Sant'Agata 19（上城内）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€15-25</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🥟 Casoncelli alla Bergamasca — 手工肉馅饺，黄油鼠尾草培根浇汁，贝加莫招牌</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">上城石板街露台，Aperitivo 文化：开胃酒 + 小食</span></div></div>
-<div class="rest-card"><h3>🍕 简单吃</h3><div class="rest-name">Pizzeria Da Franco</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Via San Lazzaro（下城）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€8-12</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍕 Margherita / Prosciutto e Funghi — 薄底披萨，火腿蘑菇本地人最爱</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">不用预约，快坐快吃，逛累了首选</span></div></div>
-<div class="tips-wrap">
-  <h2>💡 实用 Tips</h2>
-  <div class="tip"><span class="t-icon">🚠</span><span>缆车站在下城 <b>Viale Vittorio Emanuele II</b>，单程 €1.70</span></div>
-  <div class="tip"><span class="t-icon">👟</span><span>全程石板路，穿<b>舒适平底鞋</b></span></div>
-  <div class="tip"><span class="t-icon">⛪</span><span>圣母圣殿<b>免费</b>，城市塔<b>需提前买票</b></span></div>
-</div>
-</div></div>
-<div id="panel-2" class="panel"><div class="hero" style="background:linear-gradient(135deg,#1a1a2e 0%,#4a3060 50%,#c85a2c 100%)">
+<div id="panel-1" class="panel"><div class="hero" style="background:linear-gradient(135deg,#1a1a2e 0%,#4a3060 50%,#c85a2c 100%)">
   <h1>🌆 工作日晚安排</h1>
-  <p>9/15–9/18 · 下班约17:00 · 每晚不同主题</p>
+  <p>9/14–9/18 · 每晚不同主题</p>
 </div>
 <div class="container">
 <div class="tabs">
-  <button class="tab-btn active" onclick="showDay(0)">周二<br><span style="font-weight:400;font-size:.72rem">9/15</span></button>
-  <button class="tab-btn" onclick="showDay(1)">周三<br><span style="font-weight:400;font-size:.72rem">9/16</span></button>
-  <button class="tab-btn" onclick="showDay(2)">周四<br><span style="font-weight:400;font-size:.72rem">9/17</span></button>
-  <button class="tab-btn" onclick="showDay(3)">周五<br><span style="font-weight:400;font-size:.72rem">9/18</span></button>
+  <button class="tab-btn active" onclick="showDay(0)">周一<br><span style="font-weight:400;font-size:.72rem">9/14</span></button>
+  <button class="tab-btn" onclick="showDay(1)">周二<br><span style="font-weight:400;font-size:.72rem">9/15</span></button>
+  <button class="tab-btn" onclick="showDay(2)">周三<br><span style="font-weight:400;font-size:.72rem">9/16</span></button>
+  <button class="tab-btn" onclick="showDay(3)">周四<br><span style="font-weight:400;font-size:.72rem">9/17</span></button>
+  <button class="tab-btn" onclick="showDay(4)">周五<br><span style="font-weight:400;font-size:.72rem">9/18</span></button>
 </div>
 <div class="day-panel active" id="d0">
+  <div class="day-header"><div class="day-title">🏰 周一 9/14 — 抵达日，上城初探</div><div class="day-sub">白天先逛上城，傍晚缆车附近吃晚饭，好好感受贝加莫第一夜</div><div class="activity-badge">🚠 缆车上城 → 景点漫步 → 晚餐</div></div>
+  <div class="rest-card"><h3>🍴 精致吃</h3><div class="rest-name">Il Circolino</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Vicolo Sant'Agata 19（上城内）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€15-25</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🥟 Casoncelli alla Bergamasca — 手工肉馅饺，黄油鼠尾草培根浇汁，贝加莫招牌初体验</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">上城石板街露台，Aperitivo 文化：开胃酒 + 小食</span></div></div>
+  <div class="rest-card"><h3>🍕 简单吃</h3><div class="rest-name">Pizzeria Da Franco</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Via San Lazzaro（下城）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€8-12</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍕 Margherita / Prosciutto e Funghi — 薄底披萨，不用预约，快坐快吃</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">逛累了首选，本地老牌不踩雷</span></div></div>
+</div>
+<div class="day-panel" id="d1">
   <div class="day-header"><div class="day-title">🍷 周二 9/15 — 轻松 Aperitivo 解乏</div><div class="day-sub">下班直接坐缆车上上城，傍晚城墙看落日（约30分钟），随意溜达放松心情</div><div class="activity-badge">🚠 缆车上城 → 城墙落日 → 随意溜达</div></div>
   <div class="rest-card"><h3>🍴 精致吃</h3><div class="rest-name">Il Circolino</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Vicolo Sant'Agata 19（上城内）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€15-25</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🥟 Casoncelli alla Bergamasca — 手工肉馅饺，黄油鼠尾草培根浇汁</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">上城石板街露台，Aperitivo 文化：开胃酒 + 小食</span></div></div>
   <div class="rest-card"><h3>🍕 简单吃</h3><div class="rest-name">Pizzeria Da Franco</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Via San Lazzaro（下城）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€8-12</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍕 Margherita / Prosciutto e Funghi — 薄底披萨，火腿蘑菇本地人最爱</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">本地老牌，不用预约，下班不想折腾时首选</span></div></div>
 </div>
-<div class="day-panel" id="d1">
+<div class="day-panel" id="d2">
   <div class="day-header"><div class="day-title">🍽️ 周三 9/16 — 正经聚餐</div><div class="day-sub">下城商业街漫步，同事一起找一家正经餐厅吃顿好的</div><div class="activity-badge">🚶 下城商业街漫步</div></div>
   <div class="rest-card"><h3>🍴 精致吃</h3><div class="rest-name">Da Giuliana</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Via Broseta 58（下城）</span></div><div class="rest-row"><span class="lbl">套餐</span><span class="val">€25/人，含前菜+主菜+甜品+酒水，分量足</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🌽 Polenta e Brasato — 玉米糊配红酒炖牛肉，北意经典</span></div><div class="warn">⚠️ <span><b>必须提前电话预约！</b>没预约 7:30 碰运气排队，大概率白跑</span></div></div>
   <div class="rest-card"><h3>🥗 简单吃</h3><div class="rest-name">Trattoria Sant'Ambroeus</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Via Borgo Palazzo（下城）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€12-18</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍝 Tagliatelle al ragù — 宽蛋面配肉酱，现做手擀</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">不用预约，随意点随意坐</span></div></div>
 </div>
-<div class="day-panel" id="d2">
+<div class="day-panel" id="d3">
   <div class="day-header"><div class="day-title">🌃 周四 9/17 — 上城夜游</div><div class="day-sub">坐缆车上城，夜晚城墙灯光氛围极好，适合多人聚餐</div><div class="activity-badge">🚠 缆车上城 → 夜晚城墙灯光</div></div>
   <div class="rest-card"><h3>🍴 精致吃</h3><div class="rest-name">Trattoria Parietti</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Via Beltrami 52（上城）</span></div><div class="rest-row"><span class="lbl">评分</span><span class="val">⭐4.6 &nbsp;$$</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍚 Risotto alla Milanese + Ossobuco — 藏红花炖饭配炖小牛腿，伦巴第经典组合</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">用餐后沿城墙夜游，俯瞰下城万家灯火</span></div></div>
   <div class="rest-card"><h3>🍺 简单吃</h3><div class="rest-name">Osteria della Birra</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Piazza Pontida（下城）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€10-15</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍺 本地生啤 + Salumi 拼盘 — 伦巴第精酿配火腿冷切，聊天放松最搭</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">本地啤酒吧风格，热闹随意</span></div></div>
 </div>
-<div class="day-panel" id="d3">
+<div class="day-panel" id="d4">
   <div class="day-header"><div class="day-title">🎊 周五 9/18 — 出差最后一晚，好好吃一顿</div><div class="day-sub">上城漫步，好好犒劳自己，告别贝加莫</div><div class="activity-badge">🏰 上城漫步 → 隆重告别晚餐</div></div>
   <div class="rest-card"><h3>🍴 精致吃</h3><div class="rest-name">Nonna Alda</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Via Solata 7（上城）</span></div><div class="rest-row"><span class="lbl">评分</span><span class="val">⭐4.7 &nbsp;$$$</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍖 Coniglio alla Cacciatora — 猎人风味炖兔肉，番茄橄榄迷迭香慢炖</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">全城最高分家常菜，最后一晚压轴之选</span></div></div>
   <div class="rest-card"><h3>☕ 简单吃</h3><div class="rest-name">La Marianna</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Largo Colle Aperto（上城，缆车站旁）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€8-15</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍰 Polenta e Osei — 贝加莫最著名甜点，杏仁膏做的传统造型，告别必点</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">百年老咖啡馆，吃完正餐来这里收尾</span></div></div>
@@ -273,7 +241,7 @@ update();
 <script>
 function showDay(n){document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',i===n));document.querySelectorAll('.day-panel').forEach((p,i)=>p.classList.toggle('active',i===n));}
 </script></div>
-<div id="panel-3" class="panel" style="background:#f0f7fc;min-height:100vh"><div class="hero" style="background:linear-gradient(160deg,#0d3a6e 0%,#1a6ea8 50%,#4ab0e8 100%);position:relative;overflow:hidden">
+<div id="panel-2" class="panel" style="background:#f0f7fc;min-height:100vh"><div class="hero" style="background:linear-gradient(160deg,#0d3a6e 0%,#1a6ea8 50%,#4ab0e8 100%);position:relative;overflow:hidden">
   <div style="position:absolute;right:-10px;bottom:-10px;font-size:7rem;opacity:.12">🌊</div>
   <h1 style="position:relative">🏔️ 9月19日 科莫湖一日精准攻略</h1>
   <p style="position:relative">贝加莫 → 米兰 → 瓦伦纳 → 贝拉焦 → 科莫 → 回程</p>
