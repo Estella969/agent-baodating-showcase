@@ -139,8 +139,9 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
 <nav class="outer-nav">
   <div class="outer-tabs">
     <button class="outer-tab-btn active" onclick="showPanel(0)">✅ 行李<br>清单</button>
-    <button class="outer-tab-btn" onclick="showPanel(1)">🌆 工作<br>日晚</button>
-    <button class="outer-tab-btn" onclick="showPanel(2)">🏔️ 科莫<br>9/19</button>
+    <button class="outer-tab-btn" onclick="showPanel(1)">🏰 上城<br>9/14</button>
+    <button class="outer-tab-btn" onclick="showPanel(2)">🌆 工作<br>日晚</button>
+    <button class="outer-tab-btn" onclick="showPanel(3)">🏔️ 科莫<br>9/19</button>
   </div>
 </nav>
 <div id="panel-0" class="panel active"><div class="hero" style="background:linear-gradient(135deg,#c85a2c 0%,#e8a44a 100%)">
@@ -200,7 +201,44 @@ function resetAll(){document.querySelectorAll('#panel-0 .item').forEach(i=>i.cla
 try{let s=JSON.parse(localStorage.getItem('itcheck')||'null');if(s){let items=Array.from(document.querySelectorAll('#panel-0 .item'));s.forEach((v,i)=>{if(items[i]&&v)items[i].classList.add('done');});}}catch(e){}
 update();
 </script></div>
-<div id="panel-1" class="panel"><div class="hero" style="background:linear-gradient(135deg,#1a1a2e 0%,#4a3060 50%,#c85a2c 100%)">
+<div id="panel-1" class="panel"><div class="hero" style="background:linear-gradient(135deg,#2c5fc8 0%,#4ea4e8 100%)">
+  <h1>🏰 9月14日 上城初探</h1>
+  <p>同事先到一天 · 上城+晚餐安排</p>
+  <span style="display:inline-block;background:rgba(255,255,255,.2);border-radius:20px;padding:4px 14px;font-size:.82rem;margin-top:10px">周一 · 白天游览上城 · 晚餐见下方</span>
+</div>
+<div class="container">
+<div class="day-header">
+  <div class="day-title">🏛️ 白天：上城游览（步行3.5小时）</div>
+  <div class="day-sub">坐缆车上城，步行可达全部核心景点，下午3点前能逛完</div>
+  <div class="activity-badge">🚠 缆车 €1.70 · 站在下城 Viale Vittorio Emanuele II</div>
+</div>
+<div style="background:#f0f8ff;border-radius:10px;padding:12px;margin-bottom:14px;font-size:.83rem;line-height:1.8;border:1px solid #e0eaf5">
+  📍 缆车上站<br>
+  &nbsp;&nbsp;↓ 0.3km / 5分钟<br>
+  📍 城墙 Mura Veneziane（30分钟，免费）<br>
+  &nbsp;&nbsp;↓ 0.4km / 6分钟<br>
+  📍 科莱奥尼礼拜堂 + 圣母圣殿（40分钟，同一广场）<br>
+  &nbsp;&nbsp;↓ 0.1km / 2分钟<br>
+  📍 城市塔（30分钟，需买票）<br>
+  &nbsp;&nbsp;↓ 0.2km / 3分钟<br>
+  📍 主教座堂广场（20分钟）<br>
+  &nbsp;&nbsp;↓ 0.6km / 9分钟<br>
+  📍 圣雅各布门（20分钟，最佳全景机位）
+</div>
+<div class="day-header" style="margin-top:14px">
+  <div class="day-title">🍽️ 晚餐安排</div>
+  <div class="day-sub">逛完上城就在附近吃，不用下山再折腾</div>
+</div>
+<div class="rest-card"><h3>🍴 精致吃</h3><div class="rest-name">Il Circolino</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Vicolo Sant'Agata 19（上城内）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€15-25</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🥟 Casoncelli alla Bergamasca — 手工肉馅饺，黄油鼠尾草培根浇汁，贝加莫招牌</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">上城石板街露台，Aperitivo 文化：开胃酒 + 小食</span></div></div>
+<div class="rest-card"><h3>🍕 简单吃</h3><div class="rest-name">Pizzeria Da Franco</div><div class="rest-row"><span class="lbl">地址</span><span class="val">Via San Lazzaro（下城）</span></div><div class="rest-row"><span class="lbl">人均</span><span class="val">€8-12</span></div><div class="rest-row"><span class="lbl">必吃</span><span class="val">🍕 Margherita / Prosciutto e Funghi — 薄底披萨，火腿蘑菇本地人最爱</span></div><div class="rest-row"><span class="lbl">氛围</span><span class="val">不用预约，快坐快吃，逛累了首选</span></div></div>
+<div class="tips-wrap">
+  <h2>💡 实用 Tips</h2>
+  <div class="tip"><span class="t-icon">🚠</span><span>缆车站在下城 <b>Viale Vittorio Emanuele II</b>，单程 €1.70</span></div>
+  <div class="tip"><span class="t-icon">👟</span><span>全程石板路，穿<b>舒适平底鞋</b></span></div>
+  <div class="tip"><span class="t-icon">⛪</span><span>圣母圣殿<b>免费</b>，城市塔<b>需提前买票</b></span></div>
+</div>
+</div></div>
+<div id="panel-2" class="panel"><div class="hero" style="background:linear-gradient(135deg,#1a1a2e 0%,#4a3060 50%,#c85a2c 100%)">
   <h1>🌆 工作日晚安排</h1>
   <p>9/15–9/18 · 下班约17:00 · 每晚不同主题</p>
 </div>
@@ -235,7 +273,7 @@ update();
 <script>
 function showDay(n){document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',i===n));document.querySelectorAll('.day-panel').forEach((p,i)=>p.classList.toggle('active',i===n));}
 </script></div>
-<div id="panel-1" class="panel" style="background:#f0f7fc;min-height:100vh"><div class="hero" style="background:linear-gradient(160deg,#0d3a6e 0%,#1a6ea8 50%,#4ab0e8 100%);position:relative;overflow:hidden">
+<div id="panel-3" class="panel" style="background:#f0f7fc;min-height:100vh"><div class="hero" style="background:linear-gradient(160deg,#0d3a6e 0%,#1a6ea8 50%,#4ab0e8 100%);position:relative;overflow:hidden">
   <div style="position:absolute;right:-10px;bottom:-10px;font-size:7rem;opacity:.12">🌊</div>
   <h1 style="position:relative">🏔️ 9月19日 科莫湖一日精准攻略</h1>
   <p style="position:relative">贝加莫 → 米兰 → 瓦伦纳 → 贝拉焦 → 科莫 → 回程</p>
