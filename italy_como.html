@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9/19 科莫湖一日攻略</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f0f7fc;--card:#fff;--accent:#1a6ea8;--accent2:#4ab0e8;
+  --text:#1a2a3a;--muted:#5a7a9a;--border:#cce0f0;
+  --warn-bg:#fff9e6;--warn-border:#f5d88a;--warn-text:#7a5a10;
+  --stop-bg:#e8f4fd;
+}
+body{background:var(--bg);color:var(--text);font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;padding-bottom:50px}
+.hero{background:linear-gradient(160deg,#0d3a6e 0%,#1a6ea8 50%,#4ab0e8 100%);color:#fff;padding:28px 20px 24px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'🌊';position:absolute;right:-10px;bottom:-10px;font-size:7rem;opacity:.12}
+.hero h1{font-size:1.4rem;font-weight:700;margin-bottom:6px;position:relative}
+.hero p{font-size:.85rem;opacity:.85;position:relative}
+.route-bar{display:flex;align-items:center;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:14px;font-size:.78rem;opacity:.9;position:relative}
+.rb{background:rgba(255,255,255,.2);border-radius:6px;padding:3px 8px}
+.rb-arrow{opacity:.7}
+.container{max-width:520px;margin:0 auto;padding:16px}
+
+/* Section header */
+.sec-title{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+
+/* Timeline stops */
+.stop{background:var(--card);border-radius:14px;border:1px solid var(--border);margin-bottom:12px;overflow:hidden}
+.stop-header{display:flex;align-items:center;gap:10px;padding:13px 14px;border-bottom:1px solid var(--border);background:var(--stop-bg)}
+.stop-time{font-size:.82rem;font-weight:700;color:var(--accent);min-width:80px}
+.stop-place{font-size:.95rem;font-weight:700;color:var(--text)}
+.stop-body{padding:12px 14px}
+.info-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:7px;font-size:.86rem}
+.info-row:last-child{margin-bottom:0}
+.info-row .lbl{color:var(--muted);flex-shrink:0;min-width:52px}
+.info-row .val{color:var(--text);flex:1;line-height:1.5}
+.warn-box{display:flex;gap:6px;background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:8px;padding:8px 10px;margin-top:8px;font-size:.82rem;color:var(--warn-text);line-height:1.5}
+
+/* Cards grid (sights) */
+.cards-grid{display:flex;flex-direction:column;gap:8px}
+.sight{border:1px solid var(--border);border-radius:10px;padding:11px 12px;background:#f8fcff}
+.sight-head{display:flex;align-items:center;gap:6px;margin-bottom:4px}
+.sight-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.sight-name{font-size:.9rem;font-weight:700;color:var(--text)}
+.sight-meta{font-size:.78rem;color:var(--muted);margin-left:14px}
+.sight-tip{font-size:.8rem;color:var(--muted);margin-left:14px;margin-top:2px;line-height:1.4}
+.price-tag{display:inline-block;background:#e8f4fd;color:var(--accent);border-radius:5px;font-size:.72rem;padding:1px 6px;margin-left:4px;font-weight:600}
+.free-tag{display:inline-block;background:#e8f8ee;color:#3a8a5a;border-radius:5px;font-size:.72rem;padding:1px 6px;margin-left:4px;font-weight:600}
+.warn-tag{display:inline-block;background:var(--warn-bg);color:var(--warn-text);border-radius:5px;font-size:.72rem;padding:1px 6px;margin-left:4px;font-weight:600}
+
+/* Transit card */
+.transit{background:var(--card);border-radius:12px;border:1px solid var(--border);padding:13px 14px;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.transit-icon{font-size:1.5rem;flex-shrink:0}
+.transit-info .main{font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:2px}
+.transit-info .sub{font-size:.8rem;color:var(--muted)}
+.transit-price{margin-left:auto;font-size:.88rem;font-weight:700;color:var(--accent);flex-shrink:0}
+
+/* Tips */
+.tips-box{background:linear-gradient(135deg,#e8f4fd,#f0faff);border-radius:14px;border:1px solid var(--border);padding:14px;margin-bottom:12px}
+.tips-title{font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.tip{display:flex;gap:8px;margin-bottom:7px;font-size:.85rem;line-height:1.5}
+.tip:last-child{margin-bottom:0}
+.tip .icon{flex-shrink:0}
+.tip .no{color:#c83030;font-weight:700}
+
+@media(min-width:540px){.container{padding:20px}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>🏔️ 9月19日（周六）科莫湖一日精准攻略</h1>
+  <p>贝加莫 → 米兰 → 瓦伦纳 → 贝拉焦 → 科莫 → 回程</p>
+  <div class="route-bar">
+    <span class="rb">贝加莫</span><span class="rb-arrow">→</span>
+    <span class="rb">米兰</span><span class="rb-arrow">→</span>
+    <span class="rb">瓦伦纳</span><span class="rb-arrow">→</span>
+    <span class="rb">贝拉焦</span><span class="rb-arrow">→</span>
+    <span class="rb">科莫</span><span class="rb-arrow">→</span>
+    <span class="rb">米兰</span><span class="rb-arrow">→</span>
+    <span class="rb">贝加莫</span>
+  </div>
+</div>
+<div class="container">
+
+<!-- 出发 -->
+<div class="stop">
+  <div class="stop-header">
+    <div class="stop-time">07:00</div>
+    <div class="stop-place">🚉 贝加莫出发</div>
+  </div>
+  <div class="stop-body">
+    <div class="info-row"><span class="lbl">方式</span><span class="val">火车 → 米兰，约40分钟</span></div>
+    <div class="info-row"><span class="lbl">换乘</span><span class="val">米兰中央站转乘 Trenord → Varenna-Esino-Perledo 站，约1小时，€7.5-9</span></div>
+    <div class="warn-box">⚠️ 提前在 Trenord App 买票，确认直达是否正常运营（曾停运，备用方案：走 Lecco 转巴士）</div>
+  </div>
+</div>
+
+<!-- 米兰换乘 -->
+<div class="transit">
+  <div class="transit-icon">🔄</div>
+  <div class="transit-info">
+    <div class="main">米兰中央站换乘</div>
+    <div class="sub">09:00 · Trenord 区域列车 → 瓦伦纳</div>
+  </div>
+  <div class="transit-price">€7.5-9</div>
+</div>
+
+<!-- 瓦伦纳 -->
+<div class="stop">
+  <div class="stop-header">
+    <div class="stop-time">10:00–13:00</div>
+    <div class="stop-place">🏘️ 瓦伦纳</div>
+  </div>
+  <div class="stop-body">
+    <div class="info-row"><span class="lbl">到站后</span><span class="val">下火车顺人流步行约5分钟到码头</span></div>
+    <div class="info-row"><span class="lbl">买船票</span><span class="val">码头有3个售票窗口，说"Bellagio"，€5.5/人</span></div>
+    <div class="warn-box">⚠️ 两条队伍：Bellagio 队和 Menaggio 队，<b>别排错！</b><br>售票处对面小咖啡馆可以等船喝咖啡</div>
+    <div style="margin-top:10px">
+      <div class="sec-title"><span>景点</span></div>
+      <div class="cards-grid">
+        <div class="sight">
+          <div class="sight-head"><div class="sight-dot"></div><div class="sight-name">情人小径 Lovers' Walk<span class="free-tag">免费</span></div></div>
+          <div class="sight-meta">码头步行 0.4km / 5分钟</div>
+          <div class="sight-tip">彩色小房子湖边栈道，拍照圣地，色彩超级出片</div>
+        </div>
+        <div class="sight">
+          <div class="sight-head"><div class="sight-dot"></div><div class="sight-name">Villa Monastero 别墅花园<span class="price-tag">€13/人</span><span class="warn-tag">周二关闭</span></div></div>
+          <div class="sight-meta">欧洲古典气息，拍照点密集 ★推荐</div>
+          <div class="sight-tip">注意：周二关闭！行程是周五，正常开</div>
+        </div>
+        <div class="sight">
+          <div class="sight-head"><div class="sight-dot"></div><div class="sight-name">Hotel Villa Cipressi 花园<span class="price-tag">€10/人</span></div></div>
+          <div class="sight-meta">Villa Monastero 旁50米，网红"天堂门"机位</div>
+        </div>
+      </div>
+    </div>
+    <div class="info-row" style="margin-top:10px"><span class="lbl">午餐</span><span class="val">AI Prato（⚠️需提前1天电话预约）/ LA SCARPETTA 备选<br><span style="color:#c83030">❌ 湖鱼炖饭不要点</span></span></div>
+  </div>
+</div>
+
+<!-- 渡轮 -->
+<div class="transit">
+  <div class="transit-icon">⛴️</div>
+  <div class="transit-info">
+    <div class="main">瓦伦纳 → 贝拉焦 渡轮</div>
+    <div class="sub">约13:15 · 15-20分钟 · 湖中穿行，阿尔卑斯山倒影+碧绿湖水</div>
+  </div>
+  <div class="transit-price">€5.5</div>
+</div>
+
+<!-- 贝拉焦 -->
+<div class="stop">
+  <div class="stop-header">
+    <div class="stop-time">13:30–16:00</div>
+    <div class="stop-place">🏰 贝拉焦</div>
+  </div>
+  <div class="stop-body">
+    <div class="sec-title"><span>步行路线示意</span></div>
+    <div style="background:#f0f8ff;border-radius:10px;padding:12px;margin-bottom:10px;font-size:.83rem;line-height:1.8;border:1px solid var(--border)">
+      📍 码头下船<br>
+      &nbsp;&nbsp;↓ 步行 0.2km / 3分钟<br>
+      📍 小镇中心广场<br>
+      &nbsp;&nbsp;↓ 步行 0.6km / 7分钟<br>
+      📍 Salita Serbelloni 石阶（经典机位 ↑↓都好看）<br>
+      &nbsp;&nbsp;↓ 继续走 0.8km / 11分钟<br>
+      📍 Punta Spartivento 岛尖展望台（俯瞰Y型湖面，最美角度）
+    </div>
+    <div class="sec-title"><span>打卡点</span></div>
+    <div class="cards-grid">
+      <div class="sight">
+        <div class="sight-head"><div class="sight-dot"></div><div class="sight-name">码头湖边 bar（紫藤花廊）<span class="free-tag">消费即可</span></div></div>
+        <div class="sight-tip">湖景绝佳，坐下来喝杯 Aperol Spritz</div>
+      </div>
+      <div class="sight">
+        <div class="sight-head"><div class="sight-dot"></div><div class="sight-name">Salita Serbelloni 石阶</div></div>
+        <div class="sight-tip">经典打卡石阶，上下都好看，中午光线最佳</div>
+      </div>
+      <div class="sight">
+        <div class="sight-head"><div class="sight-dot"></div><div class="sight-name">Punta Spartivento 岛尖展望台<span class="free-tag">免费</span></div></div>
+        <div class="sight-tip">科莫湖Y型分叉最美视角，必去</div>
+      </div>
+      <div class="sight">
+        <div class="sight-head"><div class="sight-dot"></div><div class="sight-name">La Bottega del Legno 纪念品</div></div>
+        <div class="sight-tip">科莫丝巾比市区实惠，值得逛</div>
+      </div>
+    </div>
+    <div class="warn-box">⚠️ 几乎没有免费公厕，餐厅消费时解决</div>
+  </div>
+</div>
+
+<!-- 巴士 -->
+<div class="transit">
+  <div class="transit-icon">🚌</div>
+  <div class="transit-info">
+    <div class="main">贝拉焦 → 科莫 C130 巴士</div>
+    <div class="sub">上车站：Bellagio - Lido（人少推荐）· 车程约1小时</div>
+  </div>
+  <div class="transit-price">€4-4.3<br><span style="font-size:.74rem;color:var(--muted)">可刷Apple Pay</span></div>
+</div>
+<div class="warn-box" style="margin:-4px 0 12px;border-radius:8px">⚠️ <b>坐右侧！</b>湖景全在右边 &nbsp;·&nbsp; 提前20分钟候车，车程约1小时</div>
+
+<!-- 科莫 -->
+<div class="stop">
+  <div class="stop-header">
+    <div class="stop-time">16:00–17:30</div>
+    <div class="stop-place">🏙️ 科莫老城</div>
+  </div>
+  <div class="stop-body">
+    <div class="info-row"><span class="lbl">步行</span><span class="val">巴士站 → 科莫大教堂：约1km / 15分钟</span></div>
+    <div class="info-row"><span class="lbl">路线</span><span class="val">大教堂 → Villa Olmo 湖边花园：1.5km / 20分钟 → 火车站：1.5km / 20分钟</span></div>
+    <div class="cards-grid" style="margin-top:8px">
+      <div class="sight">
+        <div class="sight-head"><div class="sight-dot"></div><div class="sight-name">科莫大教堂<span class="free-tag">免费</span></div></div>
+        <div class="sight-tip">哥特式+文艺复兴混搭，外立面精美，内部肃穆</div>
+      </div>
+      <div class="sight">
+        <div class="sight-head"><div class="sight-dot"></div><div class="sight-name">Villa Olmo 湖边花园<span class="free-tag">散步免费</span></div></div>
+        <div class="sight-tip">新古典主义别墅，湖边散步惬意</div>
+      </div>
+      <div class="sight">
+        <div class="sight-head"><div class="sight-dot"></div><div class="sight-name">Brunate 缆车（可选）<span class="price-tag">往返约€8</span></div></div>
+        <div class="sight-tip">站距火车站1.5km/21分钟，上山8分钟，山顶俯瞰全湖 · 时间不够可跳过</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 返回 -->
+<div class="transit">
+  <div class="transit-icon">🚉</div>
+  <div class="transit-info">
+    <div class="main">17:30 科莫 S.Giovanni 站出发 → 米兰</div>
+    <div class="sub">约45分钟，€7.5 · 米兰换乘回贝加莫</div>
+  </div>
+  <div class="transit-price">€7.5</div>
+</div>
+
+<!-- 避坑清单 -->
+<div class="tips-box">
+  <div class="tips-title">⚠️ 关键避坑清单</div>
+  <div class="tip"><span class="icon">1️⃣</span><span>Trenord 火车票<b>提前 App 购买</b>，确认直达正常</span></div>
+  <div class="tip"><span class="icon">2️⃣</span><span>瓦伦纳渡轮<b>现场买</b>，分清 Bellagio 队和 Menaggio 队</span></div>
+  <div class="tip"><span class="icon">3️⃣</span><span>AI Prato 餐厅<b>提前1天电话预约</b></span></div>
+  <div class="tip"><span class="icon">4️⃣</span><span><span class="no">❌ 瓦伦纳湖鱼炖饭不要点</span>（网红踩坑）</span></div>
+  <div class="tip"><span class="icon">5️⃣</span><span>贝拉焦<b>几乎无免费公厕</b>，餐厅消费时解决</span></div>
+  <div class="tip"><span class="icon">6️⃣</span><span>C130 巴士<b>坐右侧</b>，湖景全在右边</span></div>
+  <div class="tip"><span class="icon">7️⃣</span><span>全程<b>穿舒服的鞋</b>，全是石板路</span></div>
+  <div class="tip"><span class="icon">8️⃣</span><span>湖上风大，<b>头发扎起来</b></span></div>
+  <div class="tip"><span class="icon">9️⃣</span><span>备现金<b>€50以上</b>，部分小店不收卡</span></div>
+</div>
+
+</div>
+</body>
+</html>

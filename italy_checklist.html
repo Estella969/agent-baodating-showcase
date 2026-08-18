@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>意大利出差 · 行李清单</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fdf6ee;--card:#fffaf5;--accent:#c85a2c;--accent2:#e8a44a;
+  --text:#3d2b1f;--muted:#8a6a58;--border:#e8d5c4;
+  --done-bg:#f0f9f0;--done-text:#5a8a5a;
+}
+body{background:var(--bg);color:var(--text);font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;min-height:100vh;padding-bottom:40px}
+.hero{background:linear-gradient(135deg,#c85a2c 0%,#e8a44a 100%);color:#fff;padding:28px 20px 24px;text-align:center}
+.hero h1{font-size:1.5rem;font-weight:700;letter-spacing:.05em;margin-bottom:6px}
+.hero p{font-size:.85rem;opacity:.85}
+.progress-wrap{background:rgba(255,255,255,.2);border-radius:20px;height:10px;margin:16px 0 8px;overflow:hidden}
+.progress-bar{height:100%;background:#fff;border-radius:20px;transition:width .4s ease;width:0%}
+.progress-text{font-size:.82rem;opacity:.9}
+.container{max-width:520px;margin:0 auto;padding:16px}
+.section{background:var(--card);border-radius:14px;border:1px solid var(--border);margin-bottom:14px;overflow:hidden}
+.section-header{display:flex;align-items:center;gap:8px;padding:14px 16px 10px;border-bottom:1px solid var(--border)}
+.section-header .icon{font-size:1.3rem}
+.section-header h2{font-size:1rem;font-weight:700;color:var(--text)}
+.section-header .count{margin-left:auto;font-size:.8rem;color:var(--muted);background:var(--bg);border-radius:10px;padding:2px 8px}
+.item{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .2s;user-select:none;-webkit-tap-highlight-color:transparent}
+.item:last-child{border-bottom:none}
+.item:active{background:#f5ede3}
+.item.done{background:var(--done-bg)}
+.checkbox{width:22px;height:22px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;background:#fff}
+.item.done .checkbox{background:var(--done-text);border-color:var(--done-text)}
+.checkbox svg{display:none;width:12px;height:12px}
+.item.done .checkbox svg{display:block}
+.item-text{flex:1;font-size:.9rem;transition:all .2s}
+.item.done .item-text{text-decoration:line-through;color:var(--done-text)}
+.item-tag{font-size:.72rem;padding:2px 7px;border-radius:10px;background:#ffeedd;color:var(--accent);font-weight:600;flex-shrink:0}
+.item.done .item-tag{background:var(--done-bg);color:var(--done-text)}
+.reset-btn{display:block;width:calc(100% - 32px);margin:0 16px 16px;padding:12px;background:#fff;border:1.5px solid var(--border);border-radius:10px;color:var(--muted);font-size:.88rem;cursor:pointer;text-align:center;transition:all .2s}
+.reset-btn:active{background:#fdf0e8;border-color:var(--accent)}
+@media(min-width:540px){.container{padding:20px}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>🇮🇹 贝加莫出差清单</h1>
+  <p>出发前对照检查 · 带够别担心</p>
+  <div class="progress-wrap"><div class="progress-bar" id="bar"></div></div>
+  <div class="progress-text" id="prog">0 / 24 已完成</div>
+</div>
+<div class="container">
+
+<div class="section">
+  <div class="section-header"><span class="icon">🔌</span><h2>电器类</h2><span class="count" id="c0">0/4</span></div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">欧标转换插头（意大利 Type F/L 两圆孔）</span>
+    <span class="item-tag">★必带</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">携带式旅行热水壶</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">手机/电脑充电器</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">充电宝</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header"><span class="icon">👔</span><h2>衣物</h2><span class="count" id="c1">0/6</span></div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">薄外套 / 针织开衫（早晚和室内空调必备）</span>
+    <span class="item-tag">9月凉</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">商务正装 ×4套</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">休闲便装 ×4套</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">舒适步行鞋（上城/科莫全是石板路！）</span>
+    <span class="item-tag">★必带</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">正装鞋 ×1双</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">折叠雨伞（9月偶有阵雨）</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header"><span class="icon">💊</span><h2>药品</h2><span class="count" id="c2">0/7</span></div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">胃肠药（黄连素/思密达，出国水土不服）</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">感冒药（白加黑 / 泰诺）</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">布洛芬（止痛退烧）</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">创可贴（走路多防磨脚）</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">防蚊液（湖边/夜晚）</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">晕车药（坐船备用）</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">肠胃益生菌</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header"><span class="icon">🧴</span><h2>洗漱 / 护肤</h2><span class="count" id="c3">0/3</span></div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">防晒霜 SPF50</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">洗发水/沐浴露小瓶</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">护肤精简套装</span>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header"><span class="icon">📋</span><h2>证件 / 其他</h2><span class="count" id="c4">0/4</span></div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">护照（确认有效期）</span>
+    <span class="item-tag">★必查</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">公司邀请函 / 行程确认函</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">欧元现金（约300-500欧）</span>
+  </div>
+  <div class="item" onclick="toggle(this)">
+    <div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <span class="item-text">国际漫游开通 或 当地SIM卡</span>
+  </div>
+</div>
+
+<button class="reset-btn" onclick="resetAll()">↺ 重置所有勾选</button>
+</div>
+
+<script>
+const TOTAL=24;
+const sectionCounts=[4,6,7,3,4];
+const sectionIds=['c0','c1','c2','c3','c4'];
+function getCounts(){
+  let done=0;
+  document.querySelectorAll('.section').forEach((sec,si)=>{
+    let sd=sec.querySelectorAll('.item.done').length;
+    let st=sec.querySelectorAll('.item').length;
+    document.getElementById(sectionIds[si]).textContent=sd+'/'+st;
+    done+=sd;
+  });
+  return done;
+}
+function update(){
+  let done=getCounts();
+  document.getElementById('bar').style.width=(done/TOTAL*100)+'%';
+  document.getElementById('prog').textContent=done+' / '+TOTAL+' 已完成'+(done===TOTAL?' 🎉 全部搞定！':'');
+}
+function toggle(el){
+  el.classList.toggle('done');
+  // save state
+  let items=Array.from(document.querySelectorAll('.item'));
+  let state=items.map(i=>i.classList.contains('done')?1:0);
+  try{localStorage.setItem('itcheck',JSON.stringify(state))}catch(e){}
+  update();
+}
+function resetAll(){
+  document.querySelectorAll('.item').forEach(i=>i.classList.remove('done'));
+  try{localStorage.removeItem('itcheck')}catch(e){}
+  update();
+}
+// restore
+try{
+  let s=JSON.parse(localStorage.getItem('itcheck')||'null');
+  if(s){
+    let items=Array.from(document.querySelectorAll('.item'));
+    s.forEach((v,i)=>{if(items[i]&&v)items[i].classList.add('done')});
+  }
+}catch(e){}
+update();
+</script>
+</body>
+</html>

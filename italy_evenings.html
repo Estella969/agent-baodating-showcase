@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工作日晚安排 · 贝加莫</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fdf6ee;--card:#fffaf5;--accent:#c85a2c;--accent2:#e8a44a;
+  --text:#3d2b1f;--muted:#8a6a58;--border:#e8d5c4;
+}
+body{background:var(--bg);color:var(--text);font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;padding-bottom:50px}
+.hero{background:linear-gradient(135deg,#1a1a2e 0%,#4a3060 50%,#c85a2c 100%);color:#fff;padding:28px 20px 24px;text-align:center}
+.hero h1{font-size:1.4rem;font-weight:700;margin-bottom:6px}
+.hero p{font-size:.85rem;opacity:.8}
+.container{max-width:520px;margin:0 auto;padding:16px}
+
+/* Tab nav */
+.tabs{display:flex;background:var(--card);border-radius:12px;border:1px solid var(--border);padding:4px;margin-bottom:14px;gap:2px}
+.tab-btn{flex:1;padding:8px 4px;border:none;background:transparent;border-radius:9px;font-size:.8rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s;font-family:inherit}
+.tab-btn.active{background:var(--accent);color:#fff}
+
+/* Day panel */
+.day-panel{display:none}
+.day-panel.active{display:block}
+
+/* Header */
+.day-header{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:16px;margin-bottom:12px}
+.day-title{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:6px}
+.day-sub{font-size:.85rem;color:var(--muted);margin-bottom:10px;line-height:1.5}
+.activity-badge{display:inline-flex;align-items:center;gap:5px;background:#fff4ec;border:1px solid #f0d0b0;border-radius:8px;padding:6px 10px;font-size:.83rem;color:var(--accent);font-weight:600}
+
+/* Restaurant card */
+.rest-card{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:16px;margin-bottom:12px}
+.rest-card h3{font-size:.82rem;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em}
+.rest-name{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.rest-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:5px;font-size:.86rem}
+.rest-row .lbl{color:var(--muted);flex-shrink:0;min-width:40px}
+.rest-row .val{color:var(--text);flex:1}
+.warn{display:flex;align-items:flex-start;gap:6px;background:#fff8e6;border:1px solid #f5d88a;border-radius:8px;padding:8px 10px;margin-top:10px;font-size:.82rem;color:#7a5a10}
+.alt-tag{display:inline-block;background:#e8f4fd;color:#2c5fc8;border-radius:6px;font-size:.72rem;padding:2px 6px;margin-left:6px;font-weight:600}
+
+/* Food card */
+.food-card{background:var(--card);border-radius:14px;border:1px solid var(--border);overflow:hidden;margin-bottom:12px}
+.food-card h3{font-size:.82rem;color:var(--muted);padding:14px 16px 0;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.food-item{display:flex;gap:12px;padding:10px 16px;border-top:1px solid var(--border);align-items:flex-start}
+.food-emoji{font-size:1.6rem;flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--bg);border-radius:10px}
+.food-info .name{font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.food-info .desc{font-size:.8rem;color:var(--muted);line-height:1.5}
+.must-tag{display:inline-block;background:var(--accent);color:#fff;border-radius:6px;font-size:.7rem;padding:1px 6px;margin-left:4px;vertical-align:middle}
+
+@media(min-width:540px){.container{padding:20px}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>🌆 工作日晚安排</h1>
+  <p>9/15–9/18 · 下班约17:00 · 每晚不同主题</p>
+</div>
+<div class="container">
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="showDay(0)">周二<br><span style="font-weight:400;font-size:.72rem">9/15</span></button>
+  <button class="tab-btn" onclick="showDay(1)">周三<br><span style="font-weight:400;font-size:.72rem">9/16</span></button>
+  <button class="tab-btn" onclick="showDay(2)">周四<br><span style="font-weight:400;font-size:.72rem">9/17</span></button>
+  <button class="tab-btn" onclick="showDay(3)">周五<br><span style="font-weight:400;font-size:.72rem">9/18</span></button>
+</div>
+
+<!-- 周二 9/15 -->
+<div class="day-panel active" id="d0">
+  <div class="day-header">
+    <div class="day-title">🍷 周二 9/15 — 轻松 Aperitivo 解乏</div>
+    <div class="day-sub">下班直接坐缆车上上城，傍晚城墙看落日（约30分钟），随意溜达放松心情</div>
+    <div class="activity-badge">🚠 缆车上城 → 城墙落日 → 随意溜达</div>
+  </div>
+  <div class="rest-card">
+    <h3>🍴 主推荐</h3>
+    <div class="rest-name">Il Circolino</div>
+    <div class="rest-row"><span class="lbl">地址</span><span class="val">Vicolo Sant'Agata 19（上城内）</span></div>
+    <div class="rest-row"><span class="lbl">人均</span><span class="val">€15-25</span></div>
+    <div class="rest-row"><span class="lbl">特色菜</span><span class="val">Casoncelli 手工肉馅饺（黄油鼠尾草浇汁），Polenta e Osei 玉米糊配小鸟饼干（贝加莫甜点）</span></div>
+    <div class="rest-row"><span class="lbl">氛围</span><span class="val">Aperitivo 文化标配：一杯开胃酒配小食，上城石板街夜景，适合第一天放松</span></div>
+  </div>
+  <div class="rest-card">
+    <h3>🍴 备选 <span class="alt-tag">Plan B</span></h3>
+    <div class="rest-name">Hostaria di via Broseta</div>
+    <div class="rest-row"><span class="lbl">地址</span><span class="val">Via Broseta 24（下城，离酒店近）</span></div>
+    <div class="rest-row"><span class="lbl">人均</span><span class="val">€12-20</span></div>
+    <div class="rest-row"><span class="lbl">特色菜</span><span class="val">Tagliere 冷切拼盘，Risotto alla Milanese 米兰炖饭</span></div>
+    <div class="rest-row"><span class="lbl">优势</span><span class="val">不用上城，下班直接走过去，省缆车时间，适合时差困</span></div>
+  </div>
+</div>
+
+<!-- 周三 9/16 -->
+<div class="day-panel" id="d1">
+  <div class="day-header">
+    <div class="day-title">🍽️ 周三 9/16 — 正经聚餐</div>
+    <div class="day-sub">下城商业街漫步，找一家正经餐厅吃顿好的，同事一起</div>
+    <div class="activity-badge">🚶 下城商业街漫步</div>
+  </div>
+  <div class="rest-card">
+    <h3>🍴 主推荐</h3>
+    <div class="rest-name">Da Giuliana</div>
+    <div class="rest-row"><span class="lbl">地址</span><span class="val">Via Broseta 58（下城）</span></div>
+    <div class="rest-row"><span class="lbl">套餐</span><span class="val">€25/人，含前菜+主菜+甜品+酒水</span></div>
+    <div class="rest-row"><span class="lbl">特色菜</span><span class="val">Ossobuco 炖小牛胫（米兰经典），Brasato al Barolo 红酒炖牛肉配Polenta</span></div>
+    <div class="rest-row"><span class="lbl">风格</span><span class="val">地道伦巴第家常菜，分量足，适合多人聚餐</span></div>
+    <div class="warn">⚠️ <span><b>必须提前电话预约！</b>没预约 7:30 碰运气排队，大概率白跑</span></div>
+  </div>
+  <div class="rest-card">
+    <h3>🍴 备选 <span class="alt-tag">不用预约</span></h3>
+    <div class="rest-name">Antica Hosteria della Lanterna</div>
+    <div class="rest-row"><span class="lbl">地址</span><span class="val">Via Borgo Palazzo 35（下城）</span></div>
+    <div class="rest-row"><span class="lbl">人均</span><span class="val">€20-30</span></div>
+    <div class="rest-row"><span class="lbl">特色菜</span><span class="val">Casoncelli 手工饺（店家自制版本），Cotoletta alla Milanese 米兰炸牛排</span></div>
+    <div class="rest-row"><span class="lbl">优势</span><span class="val">现场排位可行，Da Giuliana 约不上的后备方案</span></div>
+  </div>
+</div>
+
+<!-- 周四 9/17 -->
+<div class="day-panel" id="d2">
+  <div class="day-header">
+    <div class="day-title">🌃 周四 9/17 — 上城夜游</div>
+    <div class="day-sub">坐缆车上城，夜晚城墙灯光氛围极好，适合多人聚餐</div>
+    <div class="activity-badge">🚠 缆车上城 → 夜晚城墙灯光</div>
+  </div>
+  <div class="rest-card">
+    <h3>🍴 主推荐</h3>
+    <div class="rest-name">Trattoria Parietti</div>
+    <div class="rest-row"><span class="lbl">地址</span><span class="val">Via Beltrami 52（上城）</span></div>
+    <div class="rest-row"><span class="lbl">评分</span><span class="val">⭐4.6 &nbsp;$$</span></div>
+    <div class="rest-row"><span class="lbl">特色菜</span><span class="val">Casoncelli al burro e salvia（黄油鼠尾草版），Polenta taragna 荞麦玉米糊配山羊奶酪</span></div>
+    <div class="rest-row"><span class="lbl">氛围</span><span class="val">夜晚上城灯光打在石墙上，用完餐沿城墙走一圈，俯瞰下城万家灯火</span></div>
+  </div>
+  <div class="rest-card">
+    <h3>🍴 备选 <span class="alt-tag">高档一点</span></h3>
+    <div class="rest-name">Lalimentari</div>
+    <div class="rest-row"><span class="lbl">地址</span><span class="val">Via Gombito 12（上城主街）</span></div>
+    <div class="rest-row"><span class="lbl">人均</span><span class="val">€25-35</span></div>
+    <div class="rest-row"><span class="lbl">特色菜</span><span class="val">Risotto con crema di zucca 南瓜奶油炖饭，Tagliata di manzo 切片牛排配芝麻菜</span></div>
+    <div class="rest-row"><span class="lbl">优势</span><span class="val">精致摆盘，上城主街位置好，出来就是夜景拍照点</span></div>
+  </div>
+</div>
+
+<!-- 周五 9/18 -->
+<div class="day-panel" id="d3">
+  <div class="day-header">
+    <div class="day-title">🎊 周五 9/18 — 出差最后一晚，好好吃一顿</div>
+    <div class="day-sub">上城漫步,找一家全城最高分的餐厅，好好犒劳自己</div>
+    <div class="activity-badge">🏰 上城漫步 → 隆重告别晚餐</div>
+  </div>
+  <div class="rest-card">
+    <h3>🍴 主推荐</h3>
+    <div class="rest-name">Nonna Alda</div>
+    <div class="rest-row"><span class="lbl">地址</span><span class="val">Via Solata 7（上城）</span></div>
+    <div class="rest-row"><span class="lbl">评分</span><span class="val">⭐4.7 &nbsp;$$$</span></div>
+    <div class="rest-row"><span class="lbl">特色菜</span><span class="val">Casoncelli della nonna（奶奶配方手工饺），Coniglio in umido 红酒炖兔肉配Polenta</span></div>
+    <div class="rest-row"><span class="lbl">地位</span><span class="val">全城最高分家常菜餐厅之一，出差最后一晚压轴之选</span></div>
+  </div>
+  <div class="rest-card">
+    <h3>🍴 备选 <span class="alt-tag">想换口味</span></h3>
+    <div class="rest-name">Il Sole</div>
+    <div class="rest-row"><span class="lbl">地址</span><span class="val">Via Colleoni 1（上城核心广场）</span></div>
+    <div class="rest-row"><span class="lbl">人均</span><span class="val">€30-40</span></div>
+    <div class="rest-row"><span class="lbl">特色菜</span><span class="val">Filetto di manzo al Barolo 巴罗洛红酒菲力牛排，Ravioli di pesce 海鲜馄饨</span></div>
+    <div class="rest-row"><span class="lbl">优势</span><span class="val">位置在主教座堂广场旁，饭后夜游核心景点，拍照完美收尾</span></div>
+  </div>
+</div>
+
+<!-- 必吃菜介绍 -->
+<div class="food-card">
+  <h3>🍳 贝加莫必吃菜介绍</h3>
+  <div class="food-item">
+    <div class="food-emoji">🥟</div>
+    <div class="food-info">
+      <div class="name">Casoncelli alla Bergamasca <span class="must-tag">★必吃</span></div>
+      <div class="desc">手工肉馅饺，黄油鼠尾草培根浇汁 + Grana Padano 奶酪。贝加莫招牌，不吃等于白来</div>
+    </div>
+  </div>
+  <div class="food-item">
+    <div class="food-emoji">🌽</div>
+    <div class="food-info">
+      <div class="name">Polenta（玉米糊）</div>
+      <div class="desc">北意主食，有黄玉米版和荞麦版（Polenta taragna），常搭配炖肉或奶酪</div>
+    </div>
+  </div>
+  <div class="food-item">
+    <div class="food-emoji">🥩</div>
+    <div class="food-info">
+      <div class="name">Ossobuco（炖小牛胫）</div>
+      <div class="desc">米兰经典，骨髓软烂入味，配黄米饭（Risotto alla Milanese）绝配</div>
+    </div>
+  </div>
+  <div class="food-item">
+    <div class="food-emoji">🍚</div>
+    <div class="food-info">
+      <div class="name">Risotto alla Milanese（米兰炖饭）</div>
+      <div class="desc">藏红花黄色炖饭，奶香浓郁，伦巴第必点主食</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+function showDay(n){
+  document.querySelectorAll('.tab-btn').forEach((b,i)=>b.classList.toggle('active',i===n));
+  document.querySelectorAll('.day-panel').forEach((p,i)=>p.classList.toggle('active',i===n));
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>9/14 落地攻略 · 贝加莫</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fdf6ee;--card:#fffaf5;--accent:#c85a2c;--accent2:#e8a44a;
+  --text:#3d2b1f;--muted:#8a6a58;--border:#e8d5c4;--green:#4a8c5a;
+}
+body{background:var(--bg);color:var(--text);font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;padding-bottom:50px}
+.hero{background:linear-gradient(135deg,#2c5fc8 0%,#4ea4e8 100%);color:#fff;padding:28px 20px 22px;text-align:center}
+.hero h1{font-size:1.4rem;font-weight:700;margin-bottom:4px}
+.hero .sub{font-size:.85rem;opacity:.85}
+.hero .date{display:inline-block;background:rgba(255,255,255,.2);border-radius:20px;padding:4px 14px;font-size:.82rem;margin-top:10px}
+.container{max-width:520px;margin:0 auto;padding:16px}
+
+/* Hotel card */
+.hotel-card{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:16px;margin-bottom:14px}
+.hotel-card h2{font-size:.88rem;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em}
+.hotel-name{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.hotel-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:6px;font-size:.88rem}
+.hotel-row .lbl{color:var(--muted);flex-shrink:0;min-width:52px}
+.hotel-row .val{color:var(--text);flex:1}
+.stars{color:var(--accent2);font-size:.9rem}
+.badge{display:inline-flex;align-items:center;gap:4px;background:#e8f4fd;color:#2c5fc8;border-radius:8px;padding:4px 10px;font-size:.8rem;font-weight:600;margin-top:8px}
+
+/* Timeline */
+.timeline-wrap{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:16px;margin-bottom:14px}
+.timeline-wrap h2{font-size:.88rem;color:var(--muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em}
+.tl-item{display:flex;gap:12px;margin-bottom:0;position:relative}
+.tl-item:not(:last-child)::after{content:'';position:absolute;left:34px;top:34px;bottom:-4px;width:2px;background:var(--border)}
+.tl-time{width:52px;flex-shrink:0;text-align:right;font-size:.82rem;font-weight:700;color:var(--accent);padding-top:8px}
+.tl-dot{width:16px;height:16px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:10px;z-index:1;box-shadow:0 0 0 3px var(--bg)}
+.tl-body{flex:1;padding:8px 0 18px}
+.tl-title{font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.tl-desc{font-size:.82rem;color:var(--muted);line-height:1.5}
+.tl-tag{display:inline-block;background:#fff4ec;color:var(--accent);border-radius:6px;font-size:.74rem;padding:2px 7px;margin-top:4px}
+
+/* Sights grid */
+.sights-wrap{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:16px;margin-bottom:14px}
+.sights-wrap h2{font-size:.88rem;color:var(--muted);margin-bottom:12px;text-transform:uppercase;letter-spacing:.08em}
+.sight-card{border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:8px;background:#fff}
+.sight-card:last-child{margin-bottom:0}
+.sight-top{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.sight-num{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sight-name{font-size:.92rem;font-weight:700;color:var(--text);flex:1}
+.sight-score{font-size:.8rem;color:var(--accent2);flex-shrink:0}
+.sight-desc{font-size:.82rem;color:var(--muted);line-height:1.5;padding-left:32px}
+.sight-badge{display:inline-block;background:#fff4ec;color:var(--accent);border-radius:6px;font-size:.72rem;padding:1px 6px;margin-left:4px}
+
+/* Tips */
+.tips-wrap{background:linear-gradient(135deg,#fff9f0,#fff4e6);border-radius:14px;border:1px solid #f0d9c0;padding:16px;margin-bottom:14px}
+.tips-wrap h2{font-size:.88rem;color:var(--muted);margin-bottom:10px;text-transform:uppercase;letter-spacing:.08em}
+.tip{display:flex;align-items:flex-start;gap:8px;margin-bottom:8px;font-size:.87rem;line-height:1.5}
+.tip:last-child{margin-bottom:0}
+.tip .t-icon{flex-shrink:0;font-size:1rem}
+
+@media(min-width:540px){.container{padding:20px}}
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>✈️ 9月14日 落地日攻略</html>
+  <p class="sub">贝加莫 BGY 机场抵达 → 上城初探</p>
+  <span class="date">周一 · 06:53 落地</span>
+</div>
+<div class="container">
+
+<!-- 酒店信息 -->
+<div class="hotel-card">
+  <h2>🏨 入住酒店</h2>
+  <div class="hotel-name">Mercure Bergamo Palazzo Dolci Centro</div>
+  <div class="hotel-row">
+    <span class="lbl">地址</span>
+    <span class="val">Viale Papa Giovanni XXIII, 100, 24121 Bergamo</span>
+  </div>
+  <div class="hotel-row">
+    <span class="lbl">电话</span>
+    <span class="val">+39 035 227411</span>
+  </div>
+  <div class="hotel-row">
+    <span class="lbl">评分</span>
+    <span class="val"><span class="stars">★★★★</span> 4.0（2099条）</span>
+  </div>
+  <div class="hotel-row">
+    <span class="lbl">Check-in</span>
+    <span class="val">15:00（标准）</span>
+  </div>
+  <div class="badge">🚶 步行到上城 2.2km / 35分钟 &nbsp;&nbsp; 🚕 打车 3.7km / 11分钟</div>
+</div>
+
+<!-- 时间轴 -->
+<div class="timeline-wrap">
+  <h2>📅 当天时间线</h2>
+  <div class="tl-item">
+    <div class="tl-time">06:53</div>
+    <div class="tl-dot"></div>
+    <div class="tl-body">
+      <div class="tl-title">✈️ 落地 BGY 机场</div>
+      <div class="tl-desc">贝加莫奥里奥阿尔塞里奥机场</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">07:30</div>
+    <div class="tl-dot"></div>
+    <div class="tl-body">
+      <div class="tl-title">🚕 出机场 → 酒店</div>
+      <div class="tl-desc">坐巴士或打车约20分钟</div>
+      <span class="tl-tag">约€10-15 打车</span>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">08:30</div>
+    <div class="tl-dot"></div>
+    <div class="tl-body">
+      <div class="tl-title">🧳 酒店寄存行李</div>
+      <div class="tl-desc">无法提前入住，先寄存行李，换衣服出发</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">09:30</div>
+    <div class="tl-dot"></div>
+    <div class="tl-body">
+      <div class="tl-title">🚠 打车到缆车站 → 坐缆车上上城</div>
+      <div class="tl-desc">Funicolare 缆车站在下城 Viale Vittorio Emanuele II</div>
+      <span class="tl-tag">单程 €1.70</span>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">10:00</div>
+    <div class="tl-dot" style="background:var(--green)"></div>
+    <div class="tl-body">
+      <div class="tl-title" style="color:var(--green)">🏰 游览上城（3.5小时）</div>
+      <div class="tl-desc">见下方景点卡片，步行可达全部</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">13:30</div>
+    <div class="tl-dot" style="background:var(--accent2)"></div>
+    <div class="tl-body">
+      <div class="tl-title" style="color:var(--accent2)">🍝 上城午餐</div>
+      <div class="tl-desc">Il Circolino（Vicolo Sant'Agata 19）</div>
+      <span class="tl-tag">必点 Casoncelli 肉馅饺</span>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-time">15:00</div>
+    <div class="tl-dot"></div>
+    <div class="tl-body">
+      <div class="tl-title">🏨 回酒店办理入住</div>
+      <div class="tl-desc">补觉倒时差，休息备战后续工作</div>
+    </div>
+  </div>
+</div>
+
+<!-- 景点卡片 -->
+<div class="sights-wrap">
+  <h2>🏛️ 上城必打卡景点 · 3.5小时步行路线</h2>
+  <div style="background:#f0f8ff;border-radius:10px;padding:12px;margin-bottom:12px;font-size:.83rem;line-height:1.8;border:1px solid var(--border)">
+    📍 缆车上站<br>
+    &nbsp;&nbsp;↓ 步行 0.3km / 5分钟<br>
+    📍 ① 城墙 Mura Veneziane（停留30分钟，走一段城墙）<br>
+    &nbsp;&nbsp;↓ 步行 0.4km / 6分钟<br>
+    📍 ②③ 科莱奥尼礼拜堂 + 圣母圣殿（停留40分钟，两个紧挨着）<br>
+    &nbsp;&nbsp;↓ 步行 0.1km / 2分钟<br>
+    📍 ④ 城市塔（停留30分钟，登塔俯瞰）<br>
+    &nbsp;&nbsp;↓ 步行 0.2km / 3分钟<br>
+    📍 ⑤ 主教座堂广场（停留20分钟，拍照休息）<br>
+    &nbsp;&nbsp;↓ 步行 0.6km / 9分钟<br>
+    📍 ⑥ 圣雅各布门（停留20分钟，最佳全景机位）<br>
+    &nbsp;&nbsp;↓ 随意溜达回缆车站或直接去餐厅
+  </div>
+  <div class="sight-card">
+    <div class="sight-top">
+      <div class="sight-num">1</div>
+      <div class="sight-name">城墙 Mura Veneziane</div>
+      <div class="sight-score">⭐4.8 (17000)</div>
+    </div>
+    <div class="sight-desc">UNESCO遗产，走城墙俯瞰全城，视野绝佳 · 建议停留30分钟<span class="sight-badge">免费</span></div>
+  </div>
+  <div class="sight-card">
+    <div class="sight-top">
+      <div class="sight-num">2</div>
+      <div class="sight-name">科莱奥尼礼拜堂 Cappella Colleoni</div>
+      <div class="sight-score">⭐4.7 (1734)</div>
+    </div>
+    <div class="sight-desc">文艺复兴彩色大理石外墙 + 壁画天花板，贝加莫最华丽 · 建议停留20分钟</div>
+  </div>
+  <div class="sight-card">
+    <div class="sight-top">
+      <div class="sight-num">3</div>
+      <div class="sight-name">圣母圣殿 Santa Maria Maggiore</div>
+      <div class="sight-score">⭐4.8 (7192)</div>
+    </div>
+    <div class="sight-desc">镀金内饰 + 挂毯，免费入场 · 建议停留20分钟<span class="sight-badge">免费</span></div>
+  </div>
+  <div class="sight-card">
+    <div class="sight-top">
+      <div class="sight-num">4</div>
+      <div class="sight-name">城市塔 Torre del Campanone</div>
+      <div class="sight-score">⭐4.8 (1351)</div>
+    </div>
+    <div class="sight-desc">12世纪古塔，360° 俯瞰全城 · 建议停留30分钟（含登塔）<span class="sight-badge">需买票</span></div>
+  </div>
+  <div class="sight-card">
+    <div class="sight-top">
+      <div class="sight-num">5</div>
+      <div class="sight-name">主教座堂广场 Piazza Duomo</div>
+      <div class="sight-score">⭐4.7 (4800)</div>
+    </div>
+    <div class="sight-desc">上城核心广场，多座古迹聚集于此 · 建议停留20分钟<span class="sight-badge">免费</span></div>
+  </div>
+  <div class="sight-card">
+    <div class="sight-top">
+      <div class="sight-num">6</div>
+      <div class="sight-name">圣雅各布门 Porta San Giacomo</div>
+      <div class="sight-score">⭐推荐</div>
+    </div>
+    <div class="sight-desc">看山城全景最佳机位，早晨光线极好 · 建议停留20分钟<span class="sight-badge">免费</span></div>
+  </div>
+</div>
+
+<!-- Tips -->
+<div class="tips-wrap">
+  <h2>💡 实用 Tips</h2>
+  <div class="tip"><span class="t-icon">🚠</span><span>缆车站在<b>下城 Viale Vittorio Emanuele II</b>，单程 €1.70，现金或APP买票</span></div>
+  <div class="tip"><span class="t-icon">👟</span><span>上城全程石板路，穿<b>舒服的平底鞋</b>！正装鞋留商务场合</span></div>
+  <div class="tip"><span class="t-icon">⛪</span><span>圣母圣殿<b>免费入场</b>，城市塔登顶<b>需提前买票</b>（现场可能排队）</span></div>
+  <div class="tip"><span class="t-icon">🗺️</span><span>上城景点集中，步行<b>全部可达</b>，不需要再叫车</span></div>
+</div>
+
+</div>
+</body>
+</html>
