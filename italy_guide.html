@@ -186,16 +186,18 @@ body{font-family:'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;b
   <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">护肤精简套装</span></div>
 </div>
 <div class="section">
-  <div class="section-header"><span class="icon">📋</span><h2>证件 / 其他</h2><span class="count" id="c4">0/4</span></div>
+  <div class="section-header"><span class="icon">📋</span><h2>证件 / 其他</h2><span class="count" id="c4">0/6</span></div>
   <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">护照（确认有效期）</span><span class="item-tag">★必查</span></div>
-  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">公司邀请函 / 行程确认函</span></div>
-  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">欧元现金（约300-500欧）</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">酒店预订单（电子版打印）</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">返程机票确认单</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">员工卡（公司邀请函/工作证明）</span></div>
+  <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">欧元现金（适量即可）</span></div>
   <div class="item" onclick="toggle(this)"><div class="checkbox"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="item-text">国际漫游开通 或 当地SIM卡</span></div>
 </div>
 <button class="reset-btn" onclick="resetAll()">↺ 重置所有勾选</button>
 </div>
 <script>
-const TOTAL=25;const sectionIds=['c0','c1','c2','c3','c4'];
+const TOTAL=27;const sectionIds=['c0','c1','c2','c3','c4'];
 function getCounts(){let done=0;document.querySelectorAll('.section').forEach((sec,si)=>{let sd=sec.querySelectorAll('.item.done').length,st=sec.querySelectorAll('.item').length;document.getElementById(sectionIds[si]).textContent=sd+'/'+st;done+=sd;});return done;}
 function update(){let done=getCounts();document.getElementById('bar').style.width=(done/TOTAL*100)+'%';document.getElementById('prog').textContent=done+' / '+TOTAL+' 已完成'+(done===TOTAL?' 🎉 全部搞定！':'');}
 function toggle(el){el.classList.toggle('done');let items=Array.from(document.querySelectorAll('#panel-0 .item'));let state=items.map(i=>i.classList.contains('done')?1:0);try{localStorage.setItem('itcheck',JSON.stringify(state))}catch(e){}update();}
@@ -228,13 +230,13 @@ update();
   <div class="tl-item"><div class="tl-time">07:30</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🚕 出机场 → 酒店</div><div class="tl-desc">巴士或打车约20分钟</div><span class="tl-tag">€10-15</span></div></div>
   <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🧳 酒店寄存行李</div><div class="tl-desc">换衣服出发</div></div></div>
   <div class="tl-item"><div class="tl-time">09:30</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🚉 贝加莫 → 米兰中央站</div><div class="tl-desc">Trenitalia App买票,约50分钟</div><span class="tl-tag">€5-8</span></div></div>
-  <div class="tl-item"><div class="tl-time">10:30</div><div class="tl-dot" style="background:var(--green)"></div><div class="tl-body"><div class="tl-title" style="color:var(--green)">⛪ 米兰大教堂 + 登顶</div><div class="tl-desc">世界第二大哥特式教堂,登顶看135座尖塔+全城景观(约1.5小时)</div><span class="tl-tag">快速通道€28</span></div></div>
-  <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🛍️ 埃马努埃莱二世拱廊</div><div class="tl-desc">1877年玻璃穹顶商业街,踩公牛马赛克转3圈(好运仪式),Prada总店打卡</div></div></div>
-  <div class="tl-item"><div class="tl-time">12:45</div><div class="tl-dot" style="background:var(--accent2)"></div><div class="tl-body"><div class="tl-title" style="color:var(--accent2)">🍕 午餐 Luini Panzerotti</div><div class="tl-desc">米兰国民炸饺,排队正常,拿了找个广场坐着吃</div><span class="tl-tag">€5-8</span></div></div>
-  <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🏰 斯福尔扎城堡</div><div class="tl-desc">15世纪红砖城堡,米开朗基罗《圣母哀悼》真迹,城堡后森皮奥内公园散步(约1.5小时)</div><span class="tl-tag">€10</span></div></div>
-  <div class="tl-item"><div class="tl-time">15:30</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">☕ 森皮奥内公园休息</div><div class="tl-desc">城堡后大公园,找个长椅坐坐/咖啡亭喝一杯,缓一缓</div></div></div>
-  <div class="tl-item"><div class="tl-time">16:30</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🎨 布雷拉区漫步(可选)</div><div class="tl-desc">艺术区鹅卵石小巷+古着店+咖啡馆,<b>或者</b>直接去黄金四角区逛奢侈品店(Montenapoleone地铁)</div></div></div>
-  <div class="tl-item"><div class="tl-time">18:00</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🚉 米兰 → 贝加莫</div><div class="tl-desc">约50分钟,19:00前到酒店check-in,洗澡早睡备战周一上班</div></div></div>
+  <div class="tl-item"><div class="tl-time">10:30</div><div class="tl-dot" style="background:var(--green)"></div><div class="tl-body"><div class="tl-title" style="color:var(--green)">⛪ 米兰大教堂 + 登顶</div><div class="tl-desc">出站步行1.6km/20分钟 或 地铁M3黄线3站Duomo站€2,登顶看135座尖塔(约1.5小时)</div><span class="tl-tag">快速通道€28</span></div></div>
+  <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🛍️ 埃马努埃莱二世拱廊</div><div class="tl-desc">大教堂北侧紧邻,步行1分钟,踩公牛马赛克转3圈(好运仪式)</div></div></div>
+  <div class="tl-item"><div class="tl-time">12:45</div><div class="tl-dot" style="background:var(--accent2)"></div><div class="tl-body"><div class="tl-title" style="color:var(--accent2)">🍕 午餐 Luini Panzerotti</div><div class="tl-desc">拱廊步行3分钟(Via Santa Radegonda 16),拿了找广场坐着吃</div><span class="tl-tag">€5-8</span></div></div>
+  <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🏰 斯福尔扎城堡</div><div class="tl-desc">大教堂步行2km/25分钟 或 地铁M1红线Cairoli站€2,米开朗基罗真迹</div><span class="tl-tag">€10</span></div></div>
+  <div class="tl-item"><div class="tl-time">15:30</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">☕ 森皮奥内公园休息</div><div class="tl-desc">城堡后门直达,找长椅坐坐/咖啡亭喝一杯,缓一缓</div></div></div>
+  <div class="tl-item"><div class="tl-time">16:30</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🎨 布雷拉区漫步(可选)</div><div class="tl-desc">公园东南步行10分钟到布雷拉区,<b>或</b>地铁M3到Montenapoleone站逛黄金四角奢侈品街€2</div></div></div>
+  <div class="tl-item"><div class="tl-time">18:00</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🚉 米兰 → 贝加莫</div><div class="tl-desc">地铁回中央站€2,约50分钟火车,19:00前到酒店check-in</div></div></div>
 </div>
 <div class="sights-wrap">
   <h2>🏛️ 米兰必打卡景点</h2>
@@ -261,10 +263,10 @@ update();
   <div class="tl-item"><div class="tl-time">06:53</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">✈️ 落地 BGY 机场</div></div></div>
   <div class="tl-item"><div class="tl-time">07:30</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🚕 出机场 → 酒店</div><div class="tl-desc">巴士或打车约20分钟</div><span class="tl-tag">€10-15</span></div></div>
   <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🧳 酒店寄存行李</div><div class="tl-desc">换衣服出发</div></div></div>
-  <div class="tl-item"><div class="tl-time">09:30</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🚠 打车到缆车站 → 上上城</div><div class="tl-desc">Funicolare缆车站</div><span class="tl-tag">€1.70</span></div></div>
-  <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-dot" style="background:var(--green)"></div><div class="tl-body"><div class="tl-title" style="color:var(--green)">🏰 游览上城(3.5小时)</div><div class="tl-desc">城墙+礼拜堂+圣母圣殿+城市塔</div></div></div>
-  <div class="tl-item"><div class="tl-time">13:30</div><div class="tl-dot" style="background:var(--accent2)"></div><div class="tl-body"><div class="tl-title" style="color:var(--accent2)">🍝 上城午餐</div><div class="tl-desc">Il Circolino</div><span class="tl-tag">Casoncelli必点</span></div></div>
-  <div class="tl-item"><div class="tl-time">15:00</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🏨 回酒店check-in</div><div class="tl-desc">补觉倒时差</div></div></div>
+  <div class="tl-item"><div class="tl-time">09:30</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🚠 酒店 → 缆车站 → 上城</div><div class="tl-desc">步行1.2km/15分钟 或 打车5分钟到Funicolare缆车站(Viale Vittorio Emanuele II),缆车3分钟上山</div><span class="tl-tag">€1.70单程</span></div></div>
+  <div class="tl-item"><div class="tl-time">10:00</div><div class="tl-dot" style="background:var(--green)"></div><div class="tl-body"><div class="tl-title" style="color:var(--green)">🏰 游览上城(3.5小时)</div><div class="tl-desc">缆车上站→城墙5分钟步行→科莱奥尼礼拜堂/圣母圣殿(主教座堂广场)→城市塔,景点集中步行全可达</div></div></div>
+  <div class="tl-item"><div class="tl-time">13:30</div><div class="tl-dot" style="background:var(--accent2)"></div><div class="tl-body"><div class="tl-title" style="color:var(--accent2)">🍝 上城午餐</div><div class="tl-desc">Il Circolino(Vicolo Sant'Agata 19,主教座堂广场步行3分钟)</div><span class="tl-tag">Casoncelli必点</span></div></div>
+  <div class="tl-item"><div class="tl-time">15:00</div><div class="tl-dot"></div><div class="tl-body"><div class="tl-title">🏨 缆车下山 → 回酒店check-in</div><div class="tl-desc">缆车3分钟下山,步行或打车回酒店,补觉倒时差</div></div></div>
 </div>
 <div class="sights-wrap">
   <h2>🏛️ 上城必打卡景点</h2>
