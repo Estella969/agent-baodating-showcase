@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<!-- saved from url=(0273)https://storage.abby.abb.com/elabbyinternalassistant/conversations/6292f1ca-34da-42b3-ac9f-a71709791a64/output/%E7%A7%91%E8%8E%AB%E6%B9%96%E4%B8%80%E6%97%A5%E6%B8%B8.html?se=2026-09-17T14%3A32%3A48Z&sp=r&sv=2025-07-05&sr=b&sig=2WOAgMDdxKCDwpMc/GHivw6xFHKlkBTSBUxX1CVAe5g%3D -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科莫湖一日游</title>
+    <style>
+        :root {
+            --primary-red: #FF000F;
+            --primary-lilac: #6764f6;
+            --bg-light: #f8f9fa;
+            --text-dark: #2d3748;
+            --text-muted: #718096;
+            --border-color: #e2e8f0;
+            --accent-gold: #f5a623;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-red), #b3000a);
+            color: white;
+            padding: 24px 20px;
+            border-radius: 16px;
+            text-align: center;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 15px rgba(255, 0, 15, 0.2);
+        }
+
+        header h1 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .notice-card {
+            background-color: white;
+            border-left: 4px solid var(--accent-gold);
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .notice-card h3 {
+            font-size: 15px;
+            color: #d97706;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .notice-card p {
+            font-size: 13px;
+            color: var(--text-dark);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background-color: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-badge {
+            position: absolute;
+            left: -20px;
+            top: 2px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-red);
+            border: 2px solid white;
+            box-shadow: 0 0 0 3px rgba(255, 0, 15, 0.15);
+        }
+
+        .timeline-item.active .timeline-badge {
+            background-color: var(--primary-lilac);
+            box-shadow: 0 0 0 3px rgba(103, 100, 246, 0.25);
+        }
+
+        .time-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 4px;
+        }
+
+        .timeline-item.active .time-label {
+            color: var(--primary-lilac);
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .card-subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 6px;
+        }
+
+        .lang-group {
+            background-color: #f1f5f9;
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 12px;
+        }
+
+        .lang-item {
+            margin-bottom: 4px;
+        }
+        .lang-item:last-child {
+            margin-bottom: 0;
+        }
+        .lang-label {
+            font-weight: bold;
+            color: #4a5568;
+            display: inline-block;
+            width: 30px;
+        }
+
+        .instruction-tag {
+            display: inline-block;
+            background-color: #e4e7ff;
+            color: var(--primary-lilac);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .ticket-tag {
+            display: inline-block;
+            background-color: #ffe4e6;
+            color: var(--primary-red);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        p.card-desc {
+            font-size: 13px;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+
+        .highlight-text {
+            background-color: #fffbeb;
+            border: 1px solid #fde68a;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #b45309;
+            margin-top: 8px;
+        }
+
+        .food-section {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        .food-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: #15803d;
+            margin-bottom: 6px;
+        }
+
+        .food-item {
+            font-size: 12px;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>科莫湖一日游</h1>
+        <p>Bergamo ➡️ Varenna ➡️ Lenno ➡️ Bellagio ➡️ Como</p>
+    </header>
+
+    <div class="notice-card">
+        <h3>💡 核心抢票及换乘须知</h3>
+        <p><strong>大巴票务规则：</strong>从贝加莫中央火车站出发的铁路替代大巴（Bus Sostitutivo）不需要单独购买任何大巴票。您购买的 Bergamo ➡️ Varenna-Esino 联票已自动包含这段大巴和后续所有的火车行程！</p>
+    </div>
+
+    <div class="timeline">
+
+        <!-- STEP 1 -->
+        <div class="timeline-item active">
+            <div class="timeline-badge"></div>
+            <div class="time-label">07:20 - 07:34 | 贝加莫出发</div>
+            <div class="card">
+                <div class="card-title">搭乘铁路替代大巴 1718A</div>
+                <div class="card-subtitle">第一段：铁路替代大巴 (Bus Sostitutivo)</div>
+                
+                <div class="lang-group">
+                    <div class="lang-item"><span class="lang-label">ZH:</span> <strong>贝加莫中央火车站（站前广场）</strong> ➡️ <strong>蓬特圣皮耶特罗站</strong></div>
+                    <div class="lang-item"><span class="lang-label">EN:</span> Bergamo Central Station (Front Square) ➡️ Ponte San Pietro Station</div>
+                    <div class="lang-item"><span class="lang-label">IT:</span> Stazione di Bergamo (Piazza Marconi) ➡️ Stazione di Ponte San Pietro</div>
+                </div>
+
+                <div class="instruction-tag">往哪里走</div>
+                <p class="card-desc">从美居酒店步行3分钟过马路，到达贝加莫火车站前的客运大巴停靠区。<strong>明确提示：</strong>请直接去火车站广场寻找车头写着 <strong>PONTE S. PIETRO</strong> 的大巴车，直接上车 [3]！</p>
+                
+                <div class="ticket-tag">买什么票</div>
+                <p class="card-desc">购买 <strong>Bergamo ➡️ Varenna-Esino 联票</strong>（约 7.1 €），此联票通用于此替代大巴及后面的火车，大巴上无需再次买票。</p>
+
+                <div class="highlight-text">
+                    ⚠️ <strong>注意：</strong>大巴于 07:34 准时发车，请务必在 07:25 前登车。
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="timeline-item">
+            <div class="timeline-badge"></div>
+            <div class="time-label">08:05 - 08:15 | 第一次换乘</div>
+            <div class="card">
+                <div class="card-title">第一换乘点：Ponte San Pietro</div>
+                <div class="card-subtitle">大巴 ➡️ 火车（中转时间：10分钟）</div>
+
+                <div class="lang-group">
+                    <div class="lang-item"><span class="lang-label">ZH:</span> <strong>蓬特圣皮耶特罗站</strong> ➡️ <strong>莱科站</strong></div>
+                    <div class="lang-item"><span class="lang-label">EN:</span> Ponte San Pietro Station ➡️ Lecco Station</div>
+                    <div class="lang-item"><span class="lang-label">IT:</span> Stazione di Ponte San Pietro ➡️ Stazione di Lecco</div>
+                </div>
+
+                <div class="instruction-tag">往哪里走</div>
+                <p class="card-desc">大巴于 08:05 抵达 Ponte San Pietro 站。下大巴后直接进入火车站台，寻找开往 Lecco 的 10718 次列车（08:15 发车）。时间较紧，请跟着人流直接上车。</p>
+            </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="timeline-item">
+            <div class="timeline-badge"></div>
+            <div class="time-label">08:49 - 09:02 | 第二次换乘</div>
+            <div class="card">
+                <div class="card-title">第二换乘点：Lecco</div>
+                <div class="card-subtitle">火车 ➡️ 火车（中转时间：13分钟）</div>
+
+                <div class="lang-group">
+                    <div class="lang-item"><span class="lang-label">ZH:</span> <strong>莱科站</strong> ➡️ <strong>瓦伦那-埃西诺站</strong></div>
+                    <div class="lang-item"><span class="lang-label">EN:</span> Lecco Station ➡️ Varenna-Esino Station</div>
+                    <div class="lang-item"><span class="lang-label">IT:</span> Stazione di Lecco ➡️ Stazione di Varenna-Esino</div>
+                </div>
+
+                <div class="instruction-tag">往哪里走</div>
+                <p class="card-desc">08:49 抵达 Lecco。下车后立刻抬头看站台大屏幕（Partenze / Departures），寻找 09:02 往 Tirano / Sondrio 方向的 2816 次列车。通过地下通道（Sottopassaggio）奔向对应的目标站台（Binario）。</p>
+                <div class="highlight-text">
+                    ⚠️ <strong>特别提示：</strong>不要在站台屏幕上找 Varenna（因为它是中途小站），请认准终点站为 <strong>TIRANO</strong> 或 <strong>SONDRIO</strong> 方向的列车！ [3]
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="timeline-item active">
+            <div class="timeline-badge"></div>
+            <div class="time-label">09:24 - 12:30 | 星战抢票与打卡</div>
+            <div class="card">
+                <div class="card-title">巴尔比阿内洛别墅（星战取景地）</div>
+                <div class="card-subtitle">抵达瓦伦那 &amp; 前往莱诺现场购票</div>
+
+                <div class="lang-group">
+                    <div class="lang-item"><span class="lang-label">ZH:</span> <strong>瓦伦那码头</strong> ➡️ <strong>莱诺码头</strong> ➡️ <strong>巴尔比阿内洛别墅</strong></div>
+                    <div class="lang-item"><span class="lang-label">EN:</span> Varenna Pier ➡️ Lenno Pier ➡️ Villa del Balbianello</div>
+                    <div class="lang-item"><span class="lang-label">IT:</span> Imbarcadero di Varenna ➡️ Imbarcadero di Lenno ➡️ Villa del Balbianello</div>
+                </div>
+
+                <div class="instruction-tag">往哪里走</div>
+                <p class="card-desc"><strong>第一步：</strong>09:24 抵达 Varenna-Esino 站后，迅速步行10分钟下坡到 Varenna 渡轮码头，购买最近一班前往 Lenno 的轮渡票。<strong>提示：</strong>在码头请认准向南开往 <strong>COMO</strong> 方向的公共船 [1][5]。</p>
+                <p class="card-desc"><strong>第二步：</strong>大约 09:50 抵达 Lenno 码头，立刻在码头乘坐快艇/水上出租车（Taxi Boat，往返 7-9€）直奔别墅私人码头，省去25分钟爬山路的时间。</p>
+                
+                <div class="ticket-tag">现场买什么票</div>
+                <p class="card-desc">直接在别墅售票处购买 <strong>【仅花园门票 / Garden Entry Only / Ingresso Solo Parco】</strong>（约 13-15 €），即可解锁所有星战拍摄机位！</p>
+
+                <div class="highlight-text">
+                    ⭐ <strong>星战打卡重点：</strong>顺着林荫小道，走向最顶端的 <strong>Durini拱廊观景台（Loggia Durini）</strong> 以及右侧延伸出湖面的经典露台阳台（阿纳金与帕德梅拥吻的阳台），此处为整片湖区最浪漫、最经典的朝圣机位！
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="timeline-item">
+            <div class="timeline-badge"></div>
+            <div class="time-label">12:45 - 14:15 | 贝拉焦明信片打卡</div>
+            <div class="card">
+                <div class="card-title">贝拉焦与特色湖鲜午餐</div>
+                <div class="card-subtitle">中湖明珠的视觉与味觉享受</div>
+
+                <div class="lang-group">
+                    <div class="lang-item"><span class="lang-label">ZH:</span> <strong>莱诺码头</strong> ➡️ <strong>贝拉焦码头</strong></div>
+                    <div class="lang-item"><span class="lang-label">EN:</span> Lenno Pier ➡️ Bellagio Pier</div>
+                    <div class="lang-item"><span class="lang-label">IT:</span> Imbarcadero di Lenno ➡️ Imbarcadero di Bellagio</div>
+                </div>
+
+                <div class="instruction-tag">往哪里走</div>
+                <p class="card-desc">从别墅码头坐船返回 Lenno 码头，换乘前往贝拉焦（Bellagio）的渡轮。抵达后顺着石板阶梯往上，打卡最负盛名的石坡路（Salita Serbelloni）。</p>
+                <div class="highlight-text">
+                    🔥 <strong>核心避坑逻辑（相反方向）：</strong>请寻找开往相反方向的终点站，即开往北端的 <strong>COLICO（科利科）</strong> 方向，或者标注有 <strong>Centro Lago（中湖穿梭）</strong> 的渡轮。该方向的船才会中途停靠贝拉焦 [1][3]。
+                </div>
+
+                <div class="food-section">
+                    <div class="food-title">🍽️ 舌尖上的科莫湖 - 特色午餐推荐</div>
+                    <div class="food-item">
+                        <strong>推荐餐厅 1：Ristorante Bilacus</strong><br>
+                        坐落在经典的 Salita Serbelloni 石坡路上，拥有一个爬满绿色藤蔓的超美后花园露台。极其推荐点他们的 <em>【河鲈鱼烩饭 / Risotto con filetto di pesce persico】</em>，鱼肉外焦里嫩，米饭浓郁多汁，是科莫湖的招牌美味！
+                    </div>
+                    <div class="food-item">
+                        <strong>推荐餐厅 2：Trattoria San Giovanni</strong><br>
+                        非常地道的湖鲜老店。在这里可以点一份 <em>【古法风干咸湖鱼配意式玉米饼 / Missoltino con Polenta】</em>，是历史悠久的特色渔民风味。
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 6 -->
+        <div class="timeline-item">
+            <div class="timeline-badge"></div>
+            <div class="time-label">14:30 - 15:45 | 情人步道慢调</div>
+            <div class="card">
+                <div class="card-title">瓦伦那的意式渔村风情</div>
+                <div class="card-subtitle">科莫湖最经典、最震撼的湖畔红廊</div>
+
+                <div class="lang-group">
+                    <div class="lang-item"><span class="lang-label">ZH:</span> <strong>贝拉焦码头</strong> ➡️ <strong>瓦伦那码头</strong></div>
+                    <div class="lang-item"><span class="lang-label">EN:</span> Bellagio Pier ➡️ Varenna Pier</div>
+                    <div class="lang-item"><span class="lang-label">IT:</span> Imbarcadero di Bellagio ➡️ Imbarcadero di Varenna</div>
+                </div>
+
+                <div class="instruction-tag">往哪里走</div>
+                <p class="card-desc">坐上 15 分钟渡轮回到瓦伦那（Varenna）。沿着依山傍水、铺满红色铁花架的悬崖栈道——<strong>【情人步道 / Passeggiata degli Innamorati / Lovers' Walk】</strong>悠闲散步，两侧挂满了鲜花，落日微风中拍照极具意式浪漫。</p>
+            </div>
+        </div>
+
+        <!-- STEP 7 -->
+        <div class="timeline-item">
+            <div class="timeline-badge"></div>
+            <div class="time-label">16:00 - 18:30 | 湖区南下巡航</div>
+            <div class="card">
+                <div class="card-title">乘快船南下 ➡️ 科莫老城</div>
+                <div class="card-subtitle">享受开阔的南段湖光山色</div>
+
+                <div class="lang-group">
+                    <div class="lang-item"><span class="lang-label">ZH:</span> <strong>瓦伦那码头</strong> ➡️ <strong>科莫码头</strong></div>
+                    <div class="lang-item"><span class="lang-label">EN:</span> Varenna Pier ➡️ Como Pier</div>
+                    <div class="lang-item"><span class="lang-label">IT:</span> Imbarcadero di Varenna ➡️ Imbarcadero di Como</div>
+                </div>
+
+                <div class="ticket-tag">买什么票</div>
+                <p class="card-desc">在 Varenna 码头购买前往 Como 码头的<strong>【快船票 / Servizio Rapido / Hydrofoil】</strong>。快船时速极快，大约只需要 50-60 分钟就可以纵穿湖区。<em>（不推荐慢船，慢船超过 2 小时，会耽误回程时间）</em>。</p>
+                <div class="highlight-text">
+                    💡 <strong>乘船提示：</strong>在码头屏幕上认准向南的 <strong>COMO (Servizio Rapido / 快船)</strong> 方向，并认准 <strong>SR</strong> 标志 [5]！
+                </div>
+                
+                <p class="card-desc"><strong>科莫老城核心游：</strong>下船后直接步行进入 Como 老城。打卡市中心极具震撼力的**科莫大教堂（Duomo di Como）**，在古朴的主广场（Piazza Duomo）上喝一杯惬意的餐前酒（Aperitivo），感受历史名城的傍晚氛围。</p>
+            </div>
+        </div>
+
+        <!-- STEP 8 -->
+        <div class="timeline-item">
+            <div class="timeline-badge"></div>
+            <div class="time-label">18:45 以后 | 舒爽回程</div>
+            <div class="card">
+                <div class="card-title">大巴直达轻松返回贝加莫</div>
+                <div class="card-subtitle">不走回头路，直达酒店</div>
+
+                <div class="lang-group">
+                    <div class="lang-item"><span class="lang-label">ZH:</span> <strong>科莫老城</strong> ➡️ <strong>贝加莫中央火车站（美居酒店旁）</strong></div>
+                    <div class="lang-item"><span class="lang-label">EN:</span> Como Old Town ➡️ Bergamo Central Station (Near Hotel)</div>
+                    <div class="lang-item"><span class="lang-label">IT:</span> Como Centro ➡️ Bergamo Stazione (Vicino Hotel Mercure)</div>
+                </div>
+
+                <div class="instruction-tag">往哪里走</div>
+                <p class="card-desc"><strong>首选便捷方案：</strong>在科莫老城汽车站，搭乘 <strong>C46路 跨城大巴（Bus C46）</strong> 直达 Bergamo。一路上不需提箱子转火车，坐下即可在车上美美睡上一觉，大约 2 小时直达目的地，终点站就是您酒店旁的贝加莫火车站，下车就能直接进美居酒店房间休息，超级轻松！</p>
+            </div>
+        </div>
+
+    </div>
+
+
+</body></html>
