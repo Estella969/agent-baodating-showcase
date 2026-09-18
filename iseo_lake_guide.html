@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Iseo 湖一日游｜Bergamo 出发</title>
+<style>
+:root{
+  --bg:#f5f1e8; --card:#fffdf8; --ink:#17324d; --muted:#6e7d89;
+  --accent:#0f6f73; --accent2:#d97745; --line:#dcd7cc; --green:#2e7d5b;
+  --shadow:0 12px 35px rgba(28,48,60,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+  radial-gradient(circle at top right,#e8f2ef 0,transparent 28%),
+  linear-gradient(180deg,#f7f3eb,#f2eee5);
+  color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.65}
+.wrap{max-width:860px;margin:auto;padding:22px 16px 70px}
+.hero{padding:30px 24px;border-radius:28px;background:
+  linear-gradient(145deg,#163b54 0%,#0d6a6f 60%,#167e78 100%);
+  color:white;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:250px;height:250px;border:1px solid rgba(255,255,255,.18);border-radius:50%;right:-90px;top:-120px}
+.kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+h1{font-size:36px;line-height:1.1;margin:8px 0 10px}
+.hero p{margin:0;opacity:.9}
+.route{margin-top:18px;padding:12px 14px;border-radius:15px;background:rgba(255,255,255,.12);font-weight:650}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-size:12px;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.13)}
+nav{display:flex;gap:8px;overflow:auto;padding:14px 2px 4px;position:sticky;top:0;z-index:10;background:rgba(245,241,232,.93);backdrop-filter:blur(10px)}
+nav a{white-space:nowrap;text-decoration:none;color:var(--ink);background:#fff;border:1px solid #e5e0d5;padding:8px 12px;border-radius:999px;font-size:13px}
+section{margin-top:22px}
+.section-title{font-size:23px;margin:0 0 12px}
+.card{background:var(--card);border:1px solid #e8e2d8;border-radius:22px;padding:19px;box-shadow:var(--shadow);margin:12px 0}
+.alert{border-left:5px solid var(--accent2);background:#fff8ef}
+.good{border-left:5px solid var(--green);background:#f3fbf6}
+.timeline{position:relative;padding-left:24px}
+.timeline:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:#c9d7d3}
+.stop{position:relative;margin:0 0 18px}
+.stop:before{content:"";position:absolute;left:-22px;top:7px;width:12px;height:12px;background:var(--accent);border:3px solid #e8f4f1;border-radius:50%}
+.time{font-size:12px;color:var(--accent);font-weight:800;letter-spacing:.04em}
+.stop h3{margin:2px 0 3px;font-size:17px}
+.meta{color:var(--muted);font-size:13px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:650px){.row{grid-template-columns:1fr}h1{font-size:31px}.hero{padding:26px 20px}}
+.badge{display:inline-block;font-size:11px;font-weight:800;padding:4px 8px;border-radius:999px;background:#e7f3ef;color:#17605d;margin-right:6px}
+.badge.hot{background:#fff0e6;color:#b65b2f}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px}
+.btn{display:inline-block;text-decoration:none;color:white;background:var(--accent);padding:9px 12px;border-radius:12px;font-size:13px;font-weight:700}
+.btn.light{color:var(--ink);background:#eef1ee}
+.food{display:grid;grid-template-columns:44px 1fr;gap:11px;align-items:start}
+.emoji{font-size:28px}
+.food h3{margin:0}
+.food p{margin:4px 0 0}
+.small{font-size:12px;color:var(--muted)}
+.must{counter-reset:item}
+.must .place{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:13px 0;border-bottom:1px dashed #ddd5c8}
+.must .place:last-child{border-bottom:0}
+.must .place:before{counter-increment:item;content:counter(item);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#173b54;color:white;font-weight:800}
+.place h3{margin:0}
+.place p{margin:4px 0;color:#52606b}
+.phrase{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#f1eee7;border-radius:12px;padding:9px 11px;margin-top:7px}
+.check{display:flex;gap:9px;align-items:flex-start;margin:7px 0}
+.check span:first-child{font-size:18px}
+.footer{margin-top:28px;color:#78858d;font-size:12px;text-align:center}
+hr{border:0;border-top:1px solid var(--line);margin:15px 0}
+strong{color:#153c55}
+code{background:#f0eee8;padding:2px 5px;border-radius:5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <div class="kicker">19 SEP 2026 · SATURDAY</div>
+    <h1>Iseo 湖一日游</h1>
+    <p>从贝加莫美居酒店出发｜火车 + 湖船 + 老城 + 湖鲜</p>
+    <div class="route">Bergamo → Brescia → Iseo → Monte Isola / 湖上巡航 → Iseo → Bergamo</div>
+    <div class="chips">
+      <span class="chip">🚆 08:06 出发</span><span class="chip">🕥 10:27 到 Iseo</span>
+      <span class="chip">⛴️ 11:20 推荐船班</span><span class="chip">🌤️ 17–25°C</span>
+    </div>
+  </div>
+
+  <nav>
+    <a href="#transport">交通</a><a href="#route">路线</a><a href="#must">必打卡</a>
+    <a href="#food">必吃</a><a href="#tips">避坑</a><a href="#phrases">意大利语</a>
+  </nav>
+
+  <section id="transport">
+    <h2 class="section-title">🚆 先把交通走明白</h2>
+    <div class="card alert">
+      <strong>先纠正一个关键点：</strong>这一路没有地铁。你坐的是 Trenord 区域火车，唯一一次换乘在 <strong>Brescia（布雷西亚）火车站</strong>。<br>
+      <span class="small">站台号可能临时变化，所以不要提前死记 Binario，现场看电子屏最稳。</span>
+    </div>
+
+    <div class="card">
+      <div class="timeline">
+        <div class="stop">
+          <div class="time">07:35 左右</div>
+          <h3>Mercure Bergamo → Bergamo 火车站</h3>
+          <div class="meta">步行约 4–6 分钟。建议 07:45 前到站。</div>
+        </div>
+        <div class="stop">
+          <div class="time">08:06 → 09:03</div>
+          <h3>Bergamo → Brescia</h3>
+          <div><span class="badge">Regionale</span><strong>列车 10119</strong></div>
+          <div class="meta">按你截图的车次走；约 57 分钟。</div>
+        </div>
+        <div class="stop">
+          <div class="time">09:03 → 09:46｜换乘 43 分钟</div>
+          <h3>Brescia 换乘：不用出站</h3>
+          <div class="meta">下车后跟随 <strong>Partenze / Departures</strong> 指示 → 看大屏找到 <strong>S31 / Iseo</strong>（或同线路相关终点）→ 看对应 <strong>Binario</strong> → 走地下通道去站台。</div>
+          <div class="phrase">你要找的关键词：ISEO · S31 · TRENORD · 09:46 · 20928</div>
+        </div>
+        <div class="stop">
+          <div class="time">09:46 → 10:27</div>
+          <h3>Brescia → Iseo</h3>
+          <div><span class="badge">S31</span><strong>TRENORD 20928</strong></div>
+          <div class="meta">约 41 分钟。10:27 抵达 Iseo。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card good">
+      <strong>到 Iseo 后先做什么？</strong><br>
+      不要一到就钻进老城。先从火车站直接往湖边 / 码头方向走，约 10 分钟，优先确认当天船班。你明天是周六，官方秋季时刻表有效期为 8/31–10/11。
+      <div class="btns">
+        <a class="btn" href="https://www.navigazionelagoiseo.it/en/search-times/" target="_blank">查官方船班</a>
+        <a class="btn light" href="https://maps.google.com/?q=Iseo+ferry+terminal" target="_blank">导航到 Iseo 码头</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="route">
+    <h2 class="section-title">🗺️ 我给你的最佳一日路线</h2>
+    <div class="card">
+      <div class="timeline">
+        <div class="stop">
+          <div class="time">10:27–11:05</div>
+          <h3>① 抵达 Iseo → 湖边第一眼</h3>
+          <div class="meta">火车站出来直走向湖边，先到 Lungolago。拍湖景、买咖啡，但不要坐太久。</div>
+        </div>
+        <div class="stop">
+          <div class="time">11:05–11:20</div>
+          <h3>② 提前到码头排队 / 买票</h3>
+          <div class="meta">推荐瞄准 <strong>11:20 左右从 Iseo 出发的船</strong>。官方周六秋季时刻表里有 11:20 的 Iseo 班次；现场以码头电子屏和售票处为准。</div>
+        </div>
+        <div class="stop">
+          <div class="time">11:20–13:10 左右</div>
+          <h3>③ ⭐ 湖上巡航 / Monte Isola 体验</h3>
+          <div class="meta">这是今天最不能省的一段。优先选能经过或抵达 Monte Isola 的班次；岛是伊塞奥湖的核心景观。</div>
+        </div>
+        <div class="stop">
+          <div class="time">13:15–14:30</div>
+          <h3>④ 午餐：吃 Lake Iseo 的东西</h3>
+          <div class="meta">不要点通用披萨优先；看菜单里有没有 sardine / agone、polenta、persico、tinca、coregone。</div>
+        </div>
+        <div class="stop">
+          <div class="time">14:30–15:00</div>
+          <h3>⑤ ⭐ Piazza Garibaldi</h3>
+          <div class="meta">Iseo 老城核心。拱廊、小广场、Garibaldi 雕像，最适合慢慢逛。</div>
+        </div>
+        <div class="stop">
+          <div class="time">15:00–15:35</div>
+          <h3>⑥ ⭐ Castello Oldofredi</h3>
+          <div class="meta">12 世纪城堡，是 Iseo 老城最有历史感的一站。</div>
+        </div>
+        <div class="stop">
+          <div class="time">15:35–16:00</div>
+          <h3>⑦ Pieve di Sant'Andrea</h3>
+          <div class="meta">看它正面的罗马式钟楼即可，停留 15–20 分钟够了。</div>
+        </div>
+        <div class="stop">
+          <div class="time">16:00–17:30</div>
+          <h3>⑧ ⭐ 湖滨散步 + Gelato</h3>
+          <div class="meta">回到 Lungolago，别再赶景点。坐湖边、吃冰淇淋、拍 Monte Isola，才是 Iseo 的正确收尾。</div>
+        </div>
+        <div class="stop">
+          <div class="time">17:30 以后</div>
+          <h3>⑨ Iseo → Brescia → Bergamo</h3>
+          <div class="meta">回程逻辑原路：Iseo 搭 S31 / R3 到 Brescia，再换 R1 去 Bergamo。建议现场用 Trenord App 查实时车次，不要卡最后一班。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="must">
+    <h2 class="section-title">📸 必打卡：只记这 5 个</h2>
+    <div class="card must">
+      <div class="place">
+        <div>
+          <h3>Lungolago Iseo 湖滨</h3>
+          <p>第一眼湖景 + 下午散步。拍照时让 Monte Isola 在背景中。</p>
+          <a class="btn light" href="https://maps.google.com/?q=Lungolago+Iseo" target="_blank">地图</a>
+        </div>
+      </div>
+      <div class="place">
+        <div>
+          <h3>Monte Isola / 湖上视角 ⭐⭐⭐</h3>
+          <p>整个 Lake Iseo 最有辨识度的元素。官方资料称它为欧洲最大的湖中岛。</p>
+          <a class="btn light" href="https://maps.google.com/?q=Monte+Isola" target="_blank">地图</a>
+        </div>
+      </div>
+      <div class="place">
+        <div>
+          <h3>Piazza Garibaldi ⭐⭐</h3>
+          <p>Iseo 的老城中心，从这里开始走最顺。</p>
+          <a class="btn light" href="https://maps.google.com/?q=Piazza+Garibaldi+Iseo" target="_blank">地图</a>
+        </div>
+      </div>
+      <div class="place">
+        <div>
+          <h3>Castello Oldofredi ⭐⭐</h3>
+          <p>12 世纪古堡，离主广场很近，顺路必去。</p>
+          <a class="btn light" href="https://maps.google.com/?q=Castello+Oldofredi+Iseo" target="_blank">地图</a>
+        </div>
+      </div>
+      <div class="place">
+        <div>
+          <h3>Pieve di Sant'Andrea</h3>
+          <p>看正面罗马式钟楼，不需要安排很久。</p>
+          <a class="btn light" href="https://maps.google.com/?q=Pieve+di+Sant%27Andrea+Iseo" target="_blank">地图</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="food">
+    <h2 class="section-title">🍴 到 Iseo 到底吃什么</h2>
+
+    <div class="card food">
+      <div class="emoji">🐟</div>
+      <div>
+        <h3>第一名：Sardine essiccate con polenta</h3>
+        <p><strong>风干湖鱼 + 玉米糕</strong>。当地口中的 “sardina” 实际是湖里的 agone/shad，风干后配橄榄油、蒜、欧芹和 polenta，是湖区最传统的味道之一。</p>
+        <div class="phrase">菜单关键词：Sardine essiccate / Agone / Polenta</div>
+      </div>
+    </div>
+
+    <div class="card food">
+      <div class="emoji">🎣</div>
+      <div>
+        <h3>第二名：湖鱼类</h3>
+        <p>看到 <strong>Persico（鲈鱼）/ Coregone（白鲑）/ Tinca（丁鲷）</strong> 都值得试。官方湖区美食指南也特别列了炸鲈鱼、coregone in carpione、烤填馅 tinca 等。</p>
+      </div>
+    </div>
+
+    <div class="card food">
+      <div class="emoji">🍨</div>
+      <div>
+        <h3>下午小吃：Gelato</h3>
+        <p>老城里可以去 <strong>Gelateria 2+2</strong>，位置方便，周六营业到较晚；或者走到湖边边吃边散步。</p>
+        <div class="btns">
+          <a class="btn light" href="https://maps.google.com/?q=Gelateria+2%2B2+Iseo" target="_blank">Gelateria 2+2</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card food">
+      <div class="emoji">🥐</div>
+      <div>
+        <h3>想吃甜点：Il Sapore della Passione</h3>
+        <p>Via Mirolte 上的小型 pâtisserie，正好在老城散步线上；如果上午赶船，就放到下午。</p>
+        <div class="btns">
+          <a class="btn light" href="https://maps.google.com/?q=Il+Sapore+della+Passione+Iseo" target="_blank">导航</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <strong>午餐我会优先看：</strong><br>
+      <strong>Osteria FilEdo</strong>（Via Pieve 4A）或者 <strong>Osteria del Vicoletto</strong>。两家都在老城步行范围内，周六中午正常营业。<br>
+      <span class="small">重点不是“必须去某一家”，而是到店直接问当天有没有湖鱼。</span>
+      <div class="btns">
+        <a class="btn light" href="https://maps.google.com/?q=Osteria+FilEdo+Iseo" target="_blank">FilEdo 地图</a>
+        <a class="btn light" href="https://maps.google.com/?q=Osteria+del+Vicoletto+Iseo" target="_blank">Vicoletto 地图</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="tips">
+    <h2 class="section-title">⚠️ 明天最实用的避坑</h2>
+    <div class="card">
+      <div class="check"><span>✅</span><div><strong>Brescia 换乘不要出站。</strong>只看 Partenze 大屏和 Binario。</div></div>
+      <div class="check"><span>✅</span><div><strong>站台号不要提前记。</strong>意大利区域列车临时换台很常见。</div></div>
+      <div class="check"><span>✅</span><div><strong>到 Iseo 先确认船再逛老城。</strong>船班比老城开放节奏更值得优先。</div></div>
+      <div class="check"><span>✅</span><div><strong>船上带薄外套。</strong>明天白天温和，但湖面风比岸上凉。</div></div>
+      <div class="check"><span>✅</span><div><strong>Monte Isola 如果要“真正登岛”</strong>，最稳定的是去 Sulzano 再搭 5 分钟摆渡，官方班次约每 15–20 分钟；但你只有一天，我更建议优先保留 Iseo 老城 + 湖上体验。</div></div>
+      <div class="check"><span>✅</span><div><strong>回程别卡最后一班。</strong>17:30 后开始留意 Iseo → Brescia → Bergamo 即可。</div></div>
+    </div>
+  </section>
+
+  <section id="phrases">
+    <h2 class="section-title">🇮🇹 你明天会用到的意大利语</h2>
+    <div class="card">
+      <strong>请问去 Iseo 的火车在哪个站台？</strong>
+      <div class="phrase">Scusi, da quale binario parte il treno per Iseo?</div>
+      <hr>
+      <strong>我要一张去 Monte Isola 的票。</strong>
+      <div class="phrase">Un biglietto per Monte Isola, per favore.</div>
+      <hr>
+      <strong>这班船几点回来 Iseo？</strong>
+      <div class="phrase">A che ora questa barca torna a Iseo?</div>
+      <hr>
+      <strong>你们今天有当地湖鱼吗？</strong>
+      <div class="phrase">Avete pesce di lago locale oggi?</div>
+      <hr>
+      <strong>我想试风干湖鱼配 polenta。</strong>
+      <div class="phrase">Vorrei provare le sardine essiccate con polenta.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">🔗 出发前 3 个官方入口</h2>
+    <div class="card">
+      <div class="btns">
+        <a class="btn" href="https://www.trenord.it/" target="_blank">Trenord 实时车次</a>
+        <a class="btn" href="https://www.navigazionelagoiseo.it/en/search-times/" target="_blank">Iseo 官方船班</a>
+        <a class="btn light" href="https://visitlakeiseo.info/en/places/iseo/" target="_blank">Iseo 官方旅游页</a>
+      </div>
+      <p class="small">资料核对时间：2026-09-18。船班采用 2026-08-31 至 2026-10-11 秋季时刻；列车请明早再次看 Trenord 实时状态。</p>
+    </div>
+  </section>
+
+  <div class="footer">
+    Iseo Day Guide · 为 2026-09-19 从 Bergamo 出发的一日行程制作
+  </div>
+</div>
+</body>
+</html>
