@@ -73,6 +73,12 @@
     td { padding:15px 16px; border-top:1px solid var(--line); vertical-align:middle; }
     tbody tr { transition:background .2s; }
     tbody tr:hover { background:#faf8f3; }
+    .desktop-shared-row td { padding:10px 16px; border-top:1px solid #d8dfd3; border-bottom:1px solid #d8dfd3; background:var(--olive-pale); }
+    .desktop-shared-content { display:flex; align-items:center; justify-content:space-between; gap:18px; }
+    .desktop-shared-copy { color:#53604f; font-size:11px; font-weight:700; }
+    .desktop-shared-copy strong { margin-left:8px; color:var(--ink); font-size:13px; }
+    .desktop-shared-values { color:#53604f; font-size:11px; white-space:nowrap; }
+    .desktop-shared-values b { margin-right:8px; color:var(--ink); font-family:Georgia,"Times New Roman",serif; font-size:17px; font-weight:400; }
     .item-name { font-weight:700; }
     .item-brand { display:block; margin-top:3px; color:var(--muted); font-size:11px; }
     .category-tag { display:inline-block; padding:4px 7px; border-radius:6px; color:#555a50; background:var(--olive-pale); font-size:11px; white-space:nowrap; }
@@ -160,7 +166,7 @@
     <main>
       <section id="overview">
         <p class="eyebrow">2026 · Home budget</p>
-        <h1>新居支出概览</h1>
+        <h1>概览</h1>
         <p class="intro">记录每一项预算、实际支出与选购进度；修改后会自动保存在此设备。</p>
         <div class="hero">
           <div class="hero-main">
@@ -258,7 +264,9 @@
       document.getElementById('ledger-body').innerHTML = displayedItems.map(item => {
         const variance = difference(item), varianceHtml = item.budgetFollower ? '<span class="variance neutral">计入组合</span>' : variance === null ? '<span class="variance neutral">待支付</span>' : variance > 0 ? `<span class="variance over">超支 ${money(variance)}</span>` : variance < 0 ? `<span class="variance save">节省 ${money(Math.abs(variance))}</span>` : '<span class="variance neutral">无差异</span>';
         const budgetHtml = item.budgetFollower ? '<span class="variance neutral">组合预算</span>' : `¥ <input class="money-field" type="number" min="0" inputmode="decimal" aria-label="${escapeHtml(item.name)}预算" data-id="${item.id}" data-field="budget" value="${item.budget}">`;
-        return `<tr><td><span class="item-name">${escapeHtml(item.name)}</span><span class="item-brand">${escapeHtml(item.brand)}</span></td><td><span class="category-tag">${item.category}</span></td><td>${escapeHtml(item.qty)}</td><td>${budgetHtml}</td><td>¥ <input class="money-field" type="number" min="0" inputmode="decimal" aria-label="${escapeHtml(item.name)}实际支出" data-id="${item.id}" data-field="actual" value="${item.actual ?? ''}" placeholder="待定"></td><td>${varianceHtml}</td><td><select class="status ${item.status}" aria-label="${escapeHtml(item.name)}付款状态" data-id="${item.id}" data-field="status"><option value="pending" ${item.status==='pending'?'selected':''}>待支付</option><option value="paid" ${item.status==='paid'?'selected':''}>已支付</option></select></td></tr>`;
+        const shared = groupMeta(item);
+        const sharedSummary = shared && !item.budgetFollower ? `<tr class="desktop-shared-row"><td colspan="7"><div class="desktop-shared-content"><div class="desktop-shared-copy">共享组合预算<strong>${shared.name} · ${groupItems(item).map(entry=>entry.name).join(' + ')}</strong></div><div class="desktop-shared-values"><b>${money(shared.budget)}</b> 已支出 ${money(shared.spent)} · ${shared.variance > 0 ? '超支' : '节省'} ${money(Math.abs(shared.variance))}</div></div></td></tr>` : '';
+        return `${sharedSummary}<tr><td><span class="item-name">${escapeHtml(item.name)}</span><span class="item-brand">${escapeHtml(item.brand)}</span></td><td><span class="category-tag">${item.category}</span></td><td>${escapeHtml(item.qty)}</td><td>${budgetHtml}</td><td>¥ <input class="money-field" type="number" min="0" inputmode="decimal" aria-label="${escapeHtml(item.name)}实际支出" data-id="${item.id}" data-field="actual" value="${item.actual ?? ''}" placeholder="待定"></td><td>${varianceHtml}</td><td><select class="status ${item.status}" aria-label="${escapeHtml(item.name)}付款状态" data-id="${item.id}" data-field="status"><option value="pending" ${item.status==='pending'?'selected':''}>待支付</option><option value="paid" ${item.status==='paid'?'selected':''}>已支付</option></select></td></tr>`;
       }).join('');
       document.getElementById('mobile-ledger').innerHTML = ['全屋定制','软装','家电'].map(category => {
         const group = displayedItems.filter(item=>item.category===category);
