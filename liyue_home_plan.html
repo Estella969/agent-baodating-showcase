@@ -8,7 +8,7 @@
   <style>
     :root { --ink:#20221f; --muted:#77786f; --paper:#fffefb; --ground:#f4f1eb; --line:#e4e0d8; --olive:#536651; --olive-pale:#e9eee5; --clay:#ab5545; --clay-pale:#f8e9e4; --shadow:0 12px 32px rgba(40,38,31,.08); }
     * { box-sizing:border-box; }
-    html { overflow-x:clip; scroll-behavior:smooth; overscroll-behavior-x:none; }
+    html { overflow-x:clip; -webkit-text-size-adjust:100%; scroll-behavior:smooth; overscroll-behavior-x:none; }
     body { margin:0; overflow-x:clip; color:var(--ink); background:var(--ground); font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif; font-size:14px; touch-action:pan-y; overscroll-behavior-x:none; }
     img { -webkit-user-drag:none; user-select:none; }
     button,input,select { font:inherit; }
@@ -119,12 +119,15 @@
     .gallery-nav { display:flex; gap:7px; }
     .gallery-nav button { display:grid; place-items:center; width:34px; height:34px; border:1px solid var(--line); border-radius:50%; color:var(--ink); background:var(--paper); }
     .gallery-nav button:hover { color:#fff; border-color:var(--ink); background:var(--ink); }
-    .carousel { display:flex; gap:12px; overflow-x:auto; padding:2px 0 12px; touch-action:pan-x; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scrollbar-width:none; }
+    .carousel { display:flex; gap:12px; overflow-x:auto; padding:2px 0 12px; touch-action:pan-y; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scrollbar-width:none; }
     .carousel::-webkit-scrollbar { display:none; }
     .product-card { flex:0 0 100%; overflow:hidden; scroll-snap-align:start; border:1px solid var(--line); border-radius:18px; background:var(--paper); box-shadow:var(--shadow); }
     .product-visual { position:relative; height:225px; overflow:hidden; background:#e7e3db; }
     .product-visual img { width:100%; height:100%; object-fit:cover; transition:transform .45s ease; }
     .product-visual:has(img) { cursor:zoom-in; }
+    .image-upload-trigger { position:absolute; z-index:2; top:10px; right:10px; display:grid; place-items:center; width:30px; height:30px; border:1px solid rgba(255,255,255,.7); border-radius:50%; color:#fff; background:rgba(32,34,31,.7); box-shadow:0 2px 8px rgba(0,0,0,.2); font-size:19px; cursor:pointer; }
+    .image-upload-trigger:hover { background:var(--olive); }
+    .image-upload-trigger input { position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; }
     .product-card:hover img { transform:scale(1.025); }
     .product-number { position:absolute; top:12px; left:12px; padding:5px 7px; color:#fff; background:rgba(32,34,31,.76); border-radius:6px; font-size:10px; letter-spacing:.08em; }
     .product-body { padding:16px; }
@@ -139,9 +142,6 @@
     .product-state.pending { color:#77736a; background:#efede8; }
     .empty-visual { display:grid; place-items:center; height:100%; color:#69675f; background:linear-gradient(135deg,#e3ded3,#f4f1eb); font-family:Georgia,serif; font-size:34px; }
     .empty-visual span { display:grid; place-items:center; width:62px; height:62px; border:1px solid rgba(105,103,95,.32); border-radius:50%; font-family:system-ui,sans-serif; font-size:26px; }
-    .upload-image { display:inline-flex; align-items:center; gap:5px; margin-top:13px; padding:6px 8px; border:1px dashed #b7b1a6; border-radius:7px; color:#66645d; background:#fbfaf7; font-size:10px; font-weight:700; cursor:pointer; }
-    .upload-image:hover { color:var(--olive); border-color:var(--olive); background:var(--olive-pale); }
-    .upload-image input { position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; }
     .image-viewer { position:fixed; z-index:30; inset:0; display:none; align-items:center; justify-content:center; padding:20px; background:rgba(21,22,20,.92); }
     .image-viewer.open { display:flex; }
     .image-viewer figure { width:min(100%,760px); margin:0; }
@@ -151,7 +151,7 @@
     .reveal { opacity:0; transform:translateY(10px); transition:opacity .45s ease,transform .45s ease; }
     .reveal.is-visible { opacity:1; transform:translateY(0); }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; animation-duration:.01ms!important; } }
-    @media (max-width:679px) { .table-scroll { display:none; } }
+    @media (max-width:679px) { .table-scroll { display:none; } .money-field,.status,.ledger-mobile-amount .money-field { font-size:16px; } }
     @media (min-width:680px) { .shell { padding-left:28px; padding-right:28px; } .topbar { margin-left:-28px; margin-right:-28px; padding-left:28px; padding-right:28px; } .nav { display:flex; } .hero-main { grid-template-columns:1fr 150px; padding:31px 34px; } .hero-value { font-size:56px; } .donut { width:132px; height:132px; } .category-grid { grid-template-columns:repeat(3,1fr); } .product-card { flex-basis:360px; } .product-visual { height:245px; } .mobile-ledger { display:none; } }
     @media (min-width:980px) { .shell { padding-left:40px; padding-right:40px; } .topbar { margin-left:-40px; margin-right:-40px; padding-left:40px; padding-right:40px; } .hero { display:grid; grid-template-columns:1.5fr 1fr; } .hero-foot { align-self:stretch; } .hero-metric { display:flex; flex-direction:column; justify-content:center; } .hero-metric + .hero-metric { border-left:1px solid rgba(255,255,255,.12); } }
   </style>
@@ -161,7 +161,7 @@
     <header class="topbar">
       <div class="brand"><span class="brand-mark">鲤</span><span>鲤悦 · 新居计划</span></div>
       <nav class="nav"><a href="#overview">概览</a><a href="#ledger">清单</a><a href="#soft">软装</a><a href="#appliance">家电</a></nav>
-      <div class="top-actions"><button class="export-file" type="button" id="export-file">更新</button><span class="saved" id="saved-state">已本地保存</span></div>
+      <div class="top-actions"><button class="export-file" type="button" id="refresh-page">刷新</button><span class="saved" id="saved-state">已本地保存</span></div>
     </header>
     <main>
       <section id="overview">
@@ -227,8 +227,25 @@
     let currentFilter = 'all';
     const money = value => new Intl.NumberFormat('zh-CN',{style:'currency',currency:'CNY',maximumFractionDigits:0}).format(value || 0);
     const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]));
-    function loadItems() { try { const saved = JSON.parse(localStorage.getItem(STORAGE_KEY)); return Array.isArray(saved) && saved.length === initialItems.length ? saved : structuredClone(initialItems); } catch (error) { return structuredClone(initialItems); } }
-    function saveItems() { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); const state = document.getElementById('saved-state'); state.textContent = '已本地保存'; }
+    function loadItems() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (!Array.isArray(saved) || saved.length !== initialItems.length) return structuredClone(initialItems);
+        return initialItems.map(defaultItem => {
+          const savedItem = saved.find(item => item.id === defaultItem.id) || {};
+          return {...defaultItem, ...savedItem, image: savedItem.uploadedImage ? savedItem.image : defaultItem.image};
+        });
+      } catch (error) { return structuredClone(initialItems); }
+    }
+    function saveItems() {
+      const persisted = items.map(item => {
+        const copy = {...item};
+        if (!copy.uploadedImage) delete copy.image;
+        return copy;
+      });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(persisted));
+      document.getElementById('saved-state').textContent = '已本地保存';
+    }
     function totals(list = items) { return { budget:list.reduce((sum,item)=>sum + Number(item.budget || 0),0), spent:list.reduce((sum,item)=>sum + (item.status === 'paid' ? Number(item.actual || 0) : 0),0) }; }
     function groupItems(item) { return item.budgetGroup ? items.filter(entry=>entry.budgetGroup===item.budgetGroup) : [item]; }
     function groupMeta(item) {
@@ -287,7 +304,7 @@
       const budgetLabel = shared ? '共享预算' : '预算';
       const budgetValue = shared ? money(shared.budget) : money(item.budget);
       const sharedNote = shared ? `<span class="shared-note">共享 <strong>${shared.name}</strong> · 合计 ${money(shared.spent)} · ${shared.variance > 0 ? '超支' : '节省'} ${money(Math.abs(shared.variance))}</span>` : '';
-      return `<article class="product-card"><div class="product-visual">${visual}<span class="product-number">0${index+1}</span></div><div class="product-body"><div class="product-meta"><span>${escapeHtml(item.brand)}</span><span>${escapeHtml(item.category)}</span></div><h3>${escapeHtml(item.name)}</h3><p class="product-spec">${escapeHtml(item.spec)}</p>${sharedNote}<div class="product-prices"><span>${budgetLabel}<b>${budgetValue}</b></span><span>本项实际<b>${actual}</b></span></div>${variance !== null && variance !== 0 ? `<span class="product-state ${variance>0?'pending':''}">${variance>0?'超支':'节省'} ${money(Math.abs(variance))}</span>` : `<span class="product-state ${item.status==='pending'?'pending':''}">${item.status==='paid'?'已支付':'待支付'}</span>`}<label class="upload-image">＋ ${item.image ? '更换图片' : '添加图片'}<input type="file" accept="image/*" data-upload-id="${item.id}"></label></div></article>`;
+      return `<article class="product-card"><div class="product-visual">${visual}<span class="product-number">0${index+1}</span><label class="image-upload-trigger" aria-label="${item.image ? '更换' : '添加'}${escapeHtml(item.name)}图片">＋<input type="file" accept="image/*" data-upload-id="${item.id}"></label></div><div class="product-body"><div class="product-meta"><span>${escapeHtml(item.brand)}</span><span>${escapeHtml(item.category)}</span></div><h3>${escapeHtml(item.name)}</h3><p class="product-spec">${escapeHtml(item.spec)}</p>${sharedNote}<div class="product-prices"><span>${budgetLabel}<b>${budgetValue}</b></span><span>本项实际<b>${actual}</b></span></div>${variance !== null && variance !== 0 ? `<span class="product-state ${variance>0?'pending':''}">${variance>0?'超支':'节省'} ${money(Math.abs(variance))}</span>` : `<span class="product-state ${item.status==='pending'?'pending':''}">${item.status==='paid'?'已支付':'待支付'}</span>`}</div></article>`;
     }
     function renderGalleries() {
       const soft = items.filter(item=>item.category==='软装'), appliance = items.filter(item=>item.category==='家电');
@@ -311,6 +328,7 @@
           const item = items.find(entry=>entry.id===target.dataset.uploadId);
           if (!item) return;
           item.image = image;
+          item.uploadedImage = true;
           try { saveItems(); renderGalleries(); } catch (error) { alert('图片过大，无法保存。请使用更小的图片后重试。'); }
         }).catch(() => alert('无法读取该图片，请选择其他图片后重试。'));
         return;
@@ -322,8 +340,28 @@
       item[field] = field === 'status' ? target.value : (target.value === '' ? null : Number(target.value));
       render(); saveItems();
     });
+    document.addEventListener('input', event => {
+      const target = event.target;
+      if (!target.dataset.id || !['budget','actual'].includes(target.dataset.field)) return;
+      const item = items.find(entry=>entry.id===target.dataset.id);
+      if (!item) return;
+      item[target.dataset.field] = target.value === '' ? null : Number(target.value);
+      if (target.dataset.field === 'actual') {
+        item.status = target.value === '' ? 'pending' : 'paid';
+        document.querySelectorAll(`[data-id="${item.id}"][data-field="status"]`).forEach(control => {
+          control.value = item.status;
+          control.className = `status ${item.status}`;
+        });
+      }
+      renderOverview();
+      saveItems();
+    });
     document.addEventListener('click', event => {
       const image = event.target.closest('[data-view-image]');
+      if (image && image.closest('.carousel')?.dataset.swiped === 'true') {
+        image.closest('.carousel').dataset.swiped = '';
+        return;
+      }
       if (image) {
         const viewer = document.getElementById('image-viewer');
         document.getElementById('viewer-image').src = image.dataset.viewImage;
@@ -349,7 +387,7 @@
       const button = event.target.closest('[data-scroll]');
       if (!button) return;
       const carousel = document.getElementById(button.dataset.scroll);
-      carousel.scrollBy({left: Number(button.dataset.direction) * Math.min(330, carousel.clientWidth * .82), behavior:'smooth'});
+      carousel.scrollBy({left: Number(button.dataset.direction) * (carousel.clientWidth + 12), behavior:'smooth'});
     });
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') {
@@ -357,23 +395,22 @@
         document.body.style.overflow = '';
       }
     });
-    document.getElementById('export-file').addEventListener('click', () => {
-      const currentData = JSON.stringify(items).replace(/</g, '\\u003c');
-      const copy = document.documentElement.cloneNode(true);
-      ['category-grid','budget-alert','ledger-body','mobile-ledger','soft-carousel','appliance-carousel'].forEach(id => {
-        const element = copy.querySelector(`#${id}`);
-        if (element) element.innerHTML = '';
-      });
-      const html = copy.outerHTML.replace(
-        /const initialItems = \[[\s\S]*?\n    \];/,
-        `const initialItems = ${currentData};`
-      );
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(new Blob(['<!DOCTYPE html>\n' + html], {type:'text/html;charset=utf-8'}));
-      link.download = '鲤悦 新居计划.html';
-      link.click();
-      setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+    document.querySelectorAll('.carousel').forEach(carousel => {
+      let startX = 0, startY = 0;
+      carousel.addEventListener('touchstart', event => {
+        startX = event.touches[0].clientX;
+        startY = event.touches[0].clientY;
+      }, {passive:true});
+      carousel.addEventListener('touchend', event => {
+        const touch = event.changedTouches[0];
+        const deltaX = touch.clientX - startX;
+        const deltaY = touch.clientY - startY;
+        if (Math.abs(deltaX) < 42 || Math.abs(deltaX) <= Math.abs(deltaY)) return;
+        carousel.dataset.swiped = 'true';
+        carousel.scrollBy({left: deltaX > 0 ? -(carousel.clientWidth + 12) : carousel.clientWidth + 12, behavior:'smooth'});
+      }, {passive:true});
     });
+    document.getElementById('refresh-page').addEventListener('click', () => location.reload());
     function compressImage(file) {
       return new Promise((resolve,reject) => {
         const reader = new FileReader();
